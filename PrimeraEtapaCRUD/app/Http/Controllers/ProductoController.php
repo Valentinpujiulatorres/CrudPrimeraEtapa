@@ -14,7 +14,11 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        //Indice de Paginacion de Productos , en este caso 7 pero pueden ser los que deseemos
+        $productos = Producto::latest()->paginate(7);
+
+        return view('Productos.index',compact('productos'))
+        ->with('i',(request()->input('page',1)-1)*7);
     }
 
     /**
