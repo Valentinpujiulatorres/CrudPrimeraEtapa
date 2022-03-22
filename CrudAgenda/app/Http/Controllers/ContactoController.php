@@ -16,8 +16,8 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        $datosContacto['contacto'];
-        return view('Contacto.index');
+        $datosContacto['contactos']=Contacto::paginate(5);
+        return view('Contacto.index',$datosContacto);
     }
 
     /**
@@ -89,11 +89,12 @@ class ContactoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contacto  $contacto
+     * @param  \App\Models\Contacto  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contacto $contacto)
+    public function destroy( $id)
     {
-        //
+        Contacto::destroy($id); 
+        return redirect('contacto'); 
     }
 }
