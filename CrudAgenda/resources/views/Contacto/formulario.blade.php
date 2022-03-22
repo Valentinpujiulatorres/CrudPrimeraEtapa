@@ -3,21 +3,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div>
     <form>
+    <label for="id">Identificador</label>
+    
     <label for="NombreContacto">Nombre Contacto </label>
-    <input type="text" name="NombreContacto" id="NombreContacto" placeholder="Escriba su nombre" value="{{ $contacto->NombreContacto }}">
+    <input type="text" name="NombreContacto" id="NombreContacto" placeholder="Escriba su nombre" value="{{ old('NombreContacto'),$contacto->NombreContacto }}">
     <br>
     <label for="Apellidos">Apellidos Contacto</label>
-    <input type="text" name="Apellidos" id="Apellidos" placeholder="Escriba sus apellidos " value="{{ $contacto->Apellidos }}"> 
+    <input type="text" name="Apellidos" id="Apellidos" placeholder="Escriba sus apellidos">
     <br>
     <label for="Dirección">Dirección</label>
-    <input type="text" name="Direccion" id="Direccion" placeholder="Escriba su correo electrónico " value="{{ $contacto->Direccion }}">
+    <input type="text" name="Direccion" id="Direccion" placeholder="Escriba su correo electrónico ">
     <br>
     <label for="Edad"> Edad </label>
-    <input type="text" name="Edad" id="Edad" placeholder="Que edad tiene " value="{{ $contacto->Edad }}">
+    <input type="text" name="Edad" id="Edad" placeholder="Que edad tiene">
     <br>
     <label for="Imagen ">Eliga una imagen </label>
-    {{ $contacto->Imagen }}
-    <input type="file" name="Imagen" id="Imagen" value="{{ $contacto->Imagen }}">
+    <input type="file" name="Imagen" id="Imagen">
     <br>
     <input type="submit" value="Guardar Contacto">
     <br>

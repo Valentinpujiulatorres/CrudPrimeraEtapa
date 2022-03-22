@@ -2,10 +2,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 <table class="table table-light">
-    <thead class="thead-light">
+    <thead class="thead-dark">
         <tr>
             <!--Cabecera de la tabla-->
-            <th>#</th>
+            <th>ID</th>
             <th>Imagen</th>
             <th>Nombre Contacto </th>
             <th>Apellidos Contacto</th>
@@ -19,7 +19,8 @@
         <!--Genero un array de contactos por convnenio el array en plural y el objeto en singular -->
             <tr>
             <td>{{ $contacto->id }}</td>
-            <td>{{ $contacto->Imagen}}</td>
+            <td> <img src="{{ Storage::url( $contacto->Imagen)}}"class="css-class" alt="Imagen ">
+            </td>
             <td>{{ $contacto->NombreContacto}}</td>
             <td>{{ $contacto->Apellidos}}</td>
             <td>{{ $contacto->Direccion }}</td>
@@ -30,10 +31,10 @@
                  Editar Contacto |
                 </a>
             {{-- <a href={{ url('/contacto'.$contacto->id.'/edit') }}"> --}}
-                <form action="{{ url('/contacto/'.$contacto->id) }}" method="post">
+                <form action="{{ url('/contacto/'.$contacto->id)}}" method="post">
                     @csrf
                     {{ method_field('DELETE')}}
-                    <input type="submit" onclick="return confirm ('Va a borrar un contacto desea continuar')" value="Borrar Contacto ">
+                    <input  type="submit" onclick="return confirm ('Va a borrar un contacto desea continuar')" value="Borrar Contacto ">
                 </form>    
             </td>
         </tr>

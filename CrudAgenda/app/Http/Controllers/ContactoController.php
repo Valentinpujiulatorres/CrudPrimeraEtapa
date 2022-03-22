@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contacto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -20,8 +21,8 @@ class ContactoController extends Controller
      * y doy un retorno de la vista index que es el historico con datosContactos con paginación de 5 es decir 
      * limitador de 5 registros. 
      */
-        $datosContacto['contactos']=Contacto::paginate(5);
-        return view('Contacto.index',$datosContacto);
+        $contactos=DB::table('contactos')->get();
+        return view('Contacto.index',compact('contactos'));
     }
 
     /**
@@ -75,13 +76,13 @@ class ContactoController extends Controller
      * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contacto $id)
+    public function edit($id)
     {
-        $contacto=Contacto::findOrFail($id);
+        $contacto=Contacto::find($id);
 
 
-        return view('Contacto.edit',compact ('contacto'));
-        redirect('contacto');
+        return view('Contacto.edit',compact('contacto'));
+            redirect('contacto');
         
     }
 

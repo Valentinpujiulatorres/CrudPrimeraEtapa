@@ -1,6 +1,5 @@
-<form action="{{ url('/contacto/'.$contacto->id) }}" method="post" enctype="multipart/form-data</form></form>">
+<form action="{{ url('contacto/'.$contacto->id.'/edit') }}" method="post">
 @csrf
-{{ method_field('PATCH') }}
+@method('PUT'); 
 @include('Contacto.formulario');
-
 </form>
