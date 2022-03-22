@@ -42,7 +42,6 @@ class ProductoController extends Controller
     {
         //Referente al guardado de datos en DB , este metodo es llamado desde el Post Submit de la plantilla > Productos.create
 
-
         //Requeriremos una validacion previa al envio de datos (Tambien podemos agregar Campos nullables en Db , cosa que opp no es recomendable )
         $request->validate([
             'nombre'=>'required',
@@ -80,7 +79,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        return view('Productos.edit',compact('producto'));
     }
 
     /**
@@ -92,7 +91,20 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+         //Funcion de update de productos , metodo PUT *(Para mas info mirar edit.blade.php)
+         $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'stock'=>'required',
+            'precio'=>'required',
+            'procedencia'=>'required'
+        ]);
+
+        $producto->update($request->all());
+        
+        //Asignamos una redireccion de el metodo a la paginacion de index *(Metodo de este controlador )
+        return redirect()->route('productos.index')
+                        ->with('success','Producto actualizado con exito');
     }
 
     /**
