@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Imagen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class GaleriaController extends Controller
@@ -27,7 +28,7 @@ class GaleriaController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Create');
     }
 
     /**
@@ -38,7 +39,20 @@ class GaleriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $imagen = Imagen::create(
+            $request->validate([
+                'titulo' => ['required', 'max:90'],
+                'descripcion' => ['required'],
+                'imagen' => ['required'],
+            ])
+        );
+
+        $imagen->imagen = $request->file('imagen')->store('public/images');
+        $imagen->imagen = $request->file('imagen')->hashName();
+
+        $imagen->save();
+
+        return Redirect::route('imgs.index');
     }
 
     /**
@@ -47,7 +61,7 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Imagen $img)
     {
         //
     }
@@ -58,9 +72,15 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Imagen $img)
     {
-        //
+        return Inertia::render('Edit', [
+            'img' => [
+                'id' => $img->id,
+                'titulo' => $img->titulo,
+                'descripcion' => $img->descripcion
+            ]
+        ]);
     }
 
     /**
@@ -70,9 +90,16 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Imagen $img)
     {
-        //
+        $data = Request::validate([
+                'title' => ['required', 'max:90'],
+                'description' => ['required'],
+            ]);
+        $img->update($data);
+        
+
+        return Redirect::route('imgs.index');
     }
 
     /**
@@ -81,8 +108,10 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Imagen $img)
     {
-        //
+        $img->delete();
+        
+        return Redirect::route('imgs.index');
     }
 }
