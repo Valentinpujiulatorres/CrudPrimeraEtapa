@@ -84,6 +84,10 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        //Borrado de producto de la base de datos 
+
+        $producto->delete();
+
+        return redirect()->route('productos.index')->with('success', 'Producto Borrado con exito');
     }
 }

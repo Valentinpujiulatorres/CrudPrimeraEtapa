@@ -21,7 +21,7 @@
    
     <table class="table table-stripped">
         <tr>
-            <th>ID</th>
+            <th>ID P.</th>
             <th>Nombre</th>
             <th>Stock</th>
             <th>Precio</th>
