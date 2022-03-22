@@ -1,1 +1,1 @@
-<?php
+Formulario de datos comunes 

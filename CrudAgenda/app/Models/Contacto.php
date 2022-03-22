@@ -6,6 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Contacto extends Model
+
 {
     use HasFactory;
+
+     protected $filable=[
+         'NombreContacto', 
+         'Apellidos',
+         'Direccion',
+         'Edad',
+         'Imagen'
+     ];
+
+
+    protected $table='contactos';
+
+    
 }

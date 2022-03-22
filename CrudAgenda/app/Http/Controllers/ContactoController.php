@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Contacto;
 use Illuminate\Http\Request;
 
+
+
 class ContactoController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        //
+        $datosContacto['contacto'];
+        return view('Contacto.index');
     }
 
     /**
@@ -24,7 +27,7 @@ class ContactoController extends Controller
      */
     public function create()
     {
-        //
+        return view('Contacto.create');
     }
 
     /**
@@ -34,8 +37,19 @@ class ContactoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        //  dd($request);
+        // $contacto=request()->all(); 
+        //Con request all retorna todos los datos y tambien el token de seguridad
+
+         $contacto=request()->except('_token');
+         if($request->hasFile('Imagen')){
+             $contacto['Imagen']=$request->file('Imagen')->store('uploads','public');
+         }
+         
+        Contacto::insert($contacto);
+         
+        return response()->json($contacto);
     }
 
     /**
