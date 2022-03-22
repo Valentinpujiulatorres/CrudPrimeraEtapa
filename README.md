@@ -23,3 +23,19 @@
 1. Cual es tu asignatura preferida ?
 
 1. Que esperas de este proceso de aprendizaje y desarrollo?
+
+
+
+---
+
+### Tecnologias Nuevas:
+
+1. #### Select2
+     
+     Para mas info ver ejemplos > https://www.zentica-global.com/es/zentica-blog/ver/como-crear-el-menu-desplegable-select2-en-laravel-8-livewire-6073a4f27a333 
+
+
+
+1. #### SweetAlert
+
+    Para mas info ver ejemplos *(codepen exports) > https://sweetalert2.github.io/ 
