@@ -28,7 +28,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        //Creacion de Productos , en este caso el submit de datos se hara desde la vista en question (Creamos productos desde un formulario unico)
+        return view('Productos.create');
     }
 
     /**
@@ -39,7 +40,20 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Referente al guardado de datos en DB , este metodo es llamado desde el Post Submit de la plantilla > Productos.create
+
+
+        //Requeriremos una validacion previa al envio de datos (Tambien podemos agregar Campos nullables en Db , cosa que opp no es recomendable )
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'stock'=>'required',
+            'precio'=>'required',
+            'procedencia'=>'required'
+        ]);
+        
+
+
     }
 
     /**
