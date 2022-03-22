@@ -11,6 +11,7 @@ class Contacto extends Model
     use HasFactory;
 
      protected $filable=[
+         
          'NombreContacto', 
          'Apellidos',
          'Direccion',

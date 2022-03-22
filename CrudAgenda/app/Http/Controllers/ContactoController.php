@@ -16,6 +16,10 @@ class ContactoController extends Controller
      */
     public function index()
     {
+    /**Creo una variable datosContacto, sobre la tabla contacto,llamo al modelo Contacto 
+     * y doy un retorno de la vista index que es el historico con datosContactos con paginación de 5 es decir 
+     * limitador de 5 registros. 
+     */
         $datosContacto['contactos']=Contacto::paginate(5);
         return view('Contacto.index',$datosContacto);
     }
@@ -27,6 +31,7 @@ class ContactoController extends Controller
      */
     public function create()
     {
+        /**Retorno la vista para crear contactos */
         return view('Contacto.create');
     }
 
@@ -38,18 +43,19 @@ class ContactoController extends Controller
      */
     public function store(Request $request)
     { 
-        //  dd($request);
-        // $contacto=request()->all(); 
-        //Con request all retorna todos los datos y tambien el token de seguridad
+        /**dd($request) dd es un debuger para valorar los datos de respuesta de la petición; 
+         * $contacto=request()->all(); 
+            Con request all retorna todos los datos y tambien el token de seguridad
+    */ 
+
 
          $contacto=request()->except('_token');
          if($request->hasFile('Imagen')){
              $contacto['Imagen']=$request->file('Imagen')->store('uploads','public');
          }
          
-        Contacto::insert($contacto);
-         
-        return response()->json($contacto);
+        Contacto::insert($contacto);       
+        return redirect('contacto');
     }
 
     /**
@@ -69,9 +75,13 @@ class ContactoController extends Controller
      * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contacto $contacto)
+    public function edit(Contacto $id)
     {
-        //
+        $contacto=Contacto::findOrFail($id);
+
+
+        return view('Contacto.edit',compact ('contacto'));
+        
     }
 
     /**
@@ -94,6 +104,11 @@ class ContactoController extends Controller
      */
     public function destroy( $id)
     {
+        /**Llamo al módelo Contacto donde llamo la método destroy al que le paso 
+         * como parámetro el identificador de cada contacto, y realizo redirect a ruta contacto que corresponde 
+         * a la vista index
+         */
+
         Contacto::destroy($id); 
         return redirect('contacto'); 
     }

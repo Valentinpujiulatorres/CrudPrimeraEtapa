@@ -4,6 +4,7 @@
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
+            <!--Cabecera de la tabla-->
             <th>#</th>
             <th>Imagen</th>
             <th>Nombre Contacto </th>
@@ -15,6 +16,7 @@
     </thead>
     <tbody>
         @foreach ($contactos as $contacto)
+        <!--Genero un array de contactos por convnenio el array en plural y el objeto en singular -->
             <tr>
             <td>{{ $contacto->id }}</td>
             <td>{{ $contacto->Imagen}}</td>
@@ -22,11 +24,15 @@
             <td>{{ $contacto->Apellidos}}</td>
             <td>{{ $contacto->Direccion }}</td>
             <td>{{ $contacto->Edad }}</td>
-            <td>Editar Contacto |
-            
+            <td>
+                <a href="{{ route('contacto.edit',$contacto->id) }}">
+                
+                 Editar Contacto |
+                </a>
+            {{-- <a href={{ url('/contacto'.$contacto->id.'/edit') }}"> --}}
                 <form action="{{ url('/contacto/'.$contacto->id) }}" method="post">
                     @csrf
-                    {{ method_field('DELETE') }}
+                    {{ method_field('DELETE')}}
                     <input type="submit" onclick="return confirm ('Va a borrar un contacto desea continuar')" value="Borrar Contacto ">
                 </form>    
             </td>

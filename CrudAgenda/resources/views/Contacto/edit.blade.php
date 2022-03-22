@@ -1,1 +1,1 @@
-Editar contacto 
+@include('Contacto.formulario');
