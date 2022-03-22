@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GaleriaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,5 +26,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('imgs', GaleriaController::class)
+        ->names('imgs')
+        ->parameters(['imgs' => 'img']);
 
 require __DIR__.'/auth.php';

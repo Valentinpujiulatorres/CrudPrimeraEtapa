@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Imagen;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
-class VistaController extends Controller
+class GaleriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,9 @@ class VistaController extends Controller
      */
     public function index()
     {
-        //return Inertia::render('Galeria');
+        $imgs = Imagen::latest()->paginate(5);
+
+        return Inertia::render('Galeria', ['imgs' => $imgs]);
     }
 
     /**
