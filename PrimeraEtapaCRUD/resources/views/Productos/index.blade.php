@@ -24,7 +24,7 @@
             <th>ID P.</th>
             <th>Nombre</th>
             <th>Stock</th>
-            <th>Precio</th>
+            <th>Precio €</th>
             <th width="280px">Acciones</th>
         </tr>
         @foreach ($productos as $producto)
