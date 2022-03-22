@@ -51,8 +51,11 @@ class ProductoController extends Controller
             'precio'=>'required',
             'procedencia'=>'required'
         ]);
-        
 
+        Producto::create($request->all());
+
+        return redirect()->route('productos.index')
+        ->with('success','Producto agregado con exito');
 
     }
 

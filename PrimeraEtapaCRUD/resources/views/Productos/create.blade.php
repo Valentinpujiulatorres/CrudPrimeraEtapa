@@ -33,19 +33,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nombre</strong>
-                <input  type="text" name="name" class="form-control" placeholder="Inserte un nombre de producto">
+                <input  type="text" name="nombre" class="form-control" placeholder="Inserte un nombre de producto">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Descripcion</strong>
-                <input  type="textarea" name="name" class="form-control" placeholder="Breve descripcion de producto">
+                <input  type="textarea" name="descripcion" class="form-control" placeholder="Breve descripcion de producto">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
             <div class="form-group">
                 <strong>Stock</strong>
-               <input  style="width: 15%;" type="number" class="form-control" name="Age" placeholder="Stock (Uds)">
+               <input  style="width: 15%;" type="number" class="form-control" name="stock" placeholder="Stock (Uds)">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
@@ -58,7 +58,7 @@
             <div class="form-group">
                 <strong>Procedencia</strong><br>
 
-                <select class="form-control" aria-label="Default select example" name="pet" id="pets" >
+                <select class="form-control" aria-label="Default select example" name="procedencia" id="procedencia" >
                 <option selected="true" disabled="disabled">Seleccione Procedencia del Producto</option>
                     <option value="Turquia Oriental">Turquia Oriental</option>
                     <option value="Turquia Occidental">Turquia Occidental</option>
