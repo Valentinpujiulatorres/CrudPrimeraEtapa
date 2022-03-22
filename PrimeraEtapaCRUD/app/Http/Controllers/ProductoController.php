@@ -67,7 +67,9 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        //Para las imagenes (Irrelevante con show)
+        //src="{{env('APP_URL_ADMIN').'/'.$anuncio->imagen}}"
+        return view('Productos.show', compact('producto'));
     }
 
     /**
