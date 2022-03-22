@@ -9,7 +9,7 @@
     <input type="text" name="NombreContacto" id="NombreContacto" placeholder="Escriba su nombre" value="{{ old('NombreContacto'),$contacto->NombreContacto }}">
     <br>
     <label for="Apellidos">Apellidos Contacto</label>
-    <input type="text" name="Apellidos" id="Apellidos" placeholder="Escriba sus apellidos">
+    <input type="text" name="Apellidos" id="Apellidos" placeholder="Escriba sus apellidos" value="{{ old }}">
     <br>
     <label for="Dirección">Dirección</label>
     <input type="text" name="Direccion" id="Direccion" placeholder="Escriba su correo electrónico ">
