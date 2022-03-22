@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Endpoint destinado a la main page de nuestro Modelo/Controlador/database CRUD
+//Endpoint destinado a la main page de nuestro Modelo/Controlador/database
 
-Route::get('/productos', function () {
-    return view('Productos.layout');
-});
+
+
+Route::resource('/productos', ProductoController::class );
 
 
 Route::get('/dashboard', function () {

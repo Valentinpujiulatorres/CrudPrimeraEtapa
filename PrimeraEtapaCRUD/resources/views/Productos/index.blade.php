@@ -34,11 +34,11 @@
             <td>{{ $producto->stock }}</td>
             <td>{{ $producto->precio }}</td>
             <td>
-                <form action="{{ route('Productos.destroy',$producto->id) }}" method="POST">
+                <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">
    
-                    <a class="btn btn-success" href="{{ route('Productos.show',$producto->id) }}">Detalle</a>
+                    <a class="btn btn-success" href="{{ route('productos.show',$producto->id) }}">Detalle</a>
     
-                    <a class="btn btn-warning" href="{{ route('Productos.edit',$producto->id) }}">Edita</a>
+                    <a class="btn btn-warning" href="{{ route('productos.edit',$producto->id) }}">Edita</a>
    
                     @csrf
                     @method('DELETE')
