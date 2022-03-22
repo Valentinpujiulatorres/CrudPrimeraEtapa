@@ -50,7 +50,7 @@
         @endforeach
     </table>
   
-    {!! $productos->links() !!}
+  {!! $productos->links('pagination::bootstrap-4') !!} 
 
 
 @endsection
