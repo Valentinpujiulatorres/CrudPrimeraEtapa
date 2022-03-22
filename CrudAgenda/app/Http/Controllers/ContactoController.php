@@ -81,6 +81,7 @@ class ContactoController extends Controller
 
 
         return view('Contacto.edit',compact ('contacto'));
+        redirect('contacto');
         
     }
 
