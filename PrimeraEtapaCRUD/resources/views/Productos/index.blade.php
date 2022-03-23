@@ -20,7 +20,7 @@
     @endif
    
     <table class="table table-stripped">
-        <thead>
+        <thead >
         <tr>
             <th>ID P.</th>
             <th>Nombre</th>
