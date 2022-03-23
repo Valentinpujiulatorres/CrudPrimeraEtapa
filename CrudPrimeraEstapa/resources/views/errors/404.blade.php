@@ -9,5 +9,5 @@
     }
 </style>
 <button class="btn btn-dark mt-5 ml-5 mr-5"><a class="text-white"
-    href={{ route('contactos.index') }}>@lang('traduccion.Go back')</a></button>
+    href={{ route('usuarios.index') }}>@lang('traduccion.Go back')</a></button>
 <h1>@lang('traduccion.We couldn t find the resource you are trying to access!')</h1>
