@@ -1,6 +1,11 @@
 @extends('components.head')
 @section('title', 'Usuarios')
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+
+@endsection
+
 @section('content')
     <div class="min-h-screen bg-gray-100">
         <header class="bg-white shadow">
@@ -10,7 +15,7 @@
         <div class="bg-dark p-5">
             <h1 class="text-center text-white pb-4"><u>@lang('traduccion.Users')</u></h1>
             <div class="container d-flex justify-content-center align-items-center">
-                <table class="table">
+                <table id="articulos" class="table">
                     <thead class="thead-dark">
                         <tr class="text-center">
                             <th scope="col">Id</th>
@@ -33,6 +38,9 @@
                                 @endauth
                             </th>
                             <th></th>
+                            <th></th>
+                            <th></th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +57,11 @@
                                 <td>{{ $usuario->descripcion }}</td>
                                 <td>{{ $usuario->favicon }}</td>
                                 <td><img src="/imagenes/{{ $usuario->imagen}}"></td>
+                                <th></th>
+                                <th>
+                                            <button class="btn btn-success"><a class="text-white"
+                                                href="{{ route('usuarios.show',$usuario->id) }}">Detalle</a></button>
+                                </th>
                                 <th>
                                     @auth
                                         @can('update', \App\Models\Usuario::class)
@@ -74,3 +87,14 @@
             </div>
         </div>
     @endsection
+
+    @section('js')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
+    <script>
+    $(document).ready( function () {
+        $('#articulos').DataTable(
+            "lengtMenu": [[5,10,50, -1], [5,10,50, "All"]]
+        );
+    } );
+    </script>
+@endsection

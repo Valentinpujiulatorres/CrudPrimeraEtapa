@@ -26,6 +26,8 @@ class UsuarioPolicy
     {
         if($user->role === 'usuario' ){
             return true;
+        } elseif ($user->role === 'invitado'){
+            return true;
         }
     }
 
