@@ -12,6 +12,7 @@ class UsuarioRequest extends FormRequest
      *
      * @return bool
      */
+    // gate que comprueba el rol del usuario
     public function authorize()
     {
         return Gate::allows('comprobar_role');
@@ -22,6 +23,7 @@ class UsuarioRequest extends FormRequest
      *
      * @return array
      */
+    // validacion de los campos en servidor
     public function rules()
     {
         return [
@@ -32,7 +34,7 @@ class UsuarioRequest extends FormRequest
             'imagen' => 'image|max:1024'
         ];
     }
-
+    // mensages de validacion
     public function messages() 
     {
         return [

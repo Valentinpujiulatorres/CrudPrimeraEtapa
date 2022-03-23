@@ -9,6 +9,7 @@ use Closure;
 
 class Language
 {
+    // funcion para el cambio de lenguaje
     public function handle(Request $request, Closure $next) {
         if (session()->has('applocale')) {
             App::setlocale(session()->get('applocale'));
