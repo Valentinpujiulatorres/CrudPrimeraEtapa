@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\Models\Incidencias;
+use App\Policies\IncidenciasPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        Incidencias::class => IncidenciasPolicy::class
     ];
 
     /**
@@ -26,5 +29,13 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        Gate::define('comprobar_role', function ($user) {
+            if ($user->role === 'admin')
+            {
+                return true;
+            } else if ($user->role === 'usuario'){
+                return true;
+            }
+        });
     }
 }

@@ -1,42 +1,28 @@
-@extends('adminlte.layout')
-
-@section('header')
-<div class="row mb-2">
-    <div class="col-sm-6">
-        <h1 class="m-0">Introduzca los datos de la incidencia</h1>
-    </div><!-- /.col -->
-</div><!-- /.row -->
-@endsection
+@extends('layouts.head')
+@section('title', 'Crear Incidencias')
 
 @section('content')
-@include('partials.validation-errors')
-<!-- Main content -->
-<!--<section class="content">-->
-<form method="post" id="create-incidencia" enctype="multipart/form-data"
-      action="{{route('incidencias.store')}}">
-    @csrf 
-
-    @include('incidencias._incidencia')
-
-
-</form>
-
-<!-- /.content -->
-<!-- ./Main content -->
+<div class="min-h-screen bg-gray-100"> 
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        </div>
+    </header>
+    <div class="container col-12 col-md-5 bg-dark d-flex justify-content-center align-items-center">
+        <div class="row">
+            <div class="col-12">
+                <div class="well well-sm">
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <li class="text-danger text-center pt-4">{{ $error }}</li>
+                        @endforeach
+                    @endif
+                    <form class="form-horizontal" action="{{ route('incidencias.store', $incidencia) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @include('layouts.form')
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
-
-
-
-@push('scripts')
-<!-- bs-custom-file-input -->
-<script src="/adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-
-<!-- Page specific script -->
-<script>
-$(function () {
-    bsCustomFileInput.init();
-});
-</script>
-
-@endpush
 

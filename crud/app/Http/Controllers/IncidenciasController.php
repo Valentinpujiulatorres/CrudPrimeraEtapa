@@ -1,27 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Incidencias;
+use Illuminate\Http\Request;
 use App\Http\Requests\IncidenciasRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use App\Models\Incidencias;
+
 
 class IncidenciasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request) {
-     $incidencias = Incidencias::all();
-        return view('incidencias.index', compact('incidencias'));
+    public function index(Request $request)
+    {
+        $incidencias = Incidencias::latest()->paginate(7);
+
+        return view('incidencias.index',compact('incidencias'))
+        ->with('i',(request()->input('page',1)-1)*7);
     }
 
     public function create(Incidencias $incidencia)
     {
+        Gate::authorize('comprobar_role');
         return view('incidencias.create', compact('incidencia'));
     }
 
@@ -31,29 +32,38 @@ class IncidenciasController extends Controller
         return redirect()->route('incidencias.index');
     }
 
-    public function show(Incidencias $incidencia)
+    public function show(Incidencias $incidencias)
     {
-        $this->authorize('view', $incidencia);
-        return view('incidencias.show', compact('incidencia'));
+        return view('incidencias.show', compact('incidencias'));
     }
 
-    public function edit($incidencia)
+    public function edit($incidencias)
     {
-        $incidencia = Incidencias::find($incidencia);
-        return view('incidencias.edit', compact('incidencia'));
+        $incidencias = Incidencias::find($incidencias);
+        return view('incidencias.edit', compact('incidencias'));
     }
 
-    public function update(IncidenciasRequest $request, Incidencias $incidencia)
+    public function update(Request $request, Incidencias $incidencia)
     {
-        $this->authorize('update', $incidencia);
+         //Funcion de update de productos , metodo PUT *(Para mas info mirar edit.blade.php)
+         $request->validate([
+            'fecherror'=>'required',
+            'error'=>'required',
+            'tipoerror'=>'required',
+            'descerror'=>'required',
+        ]);
+
         $incidencia->update($request->all());
-        return redirect('incidencias');
+        
+        //Asignamos una redireccion de el metodo a la paginacion de index *(Metodo de este controlador )
+        return redirect()->route('incidencias.index')
+                        ->with('success','Producto actualizado con exito');
     }
 
-    public function destroy(Incidencias $incidencia)
+    public function destroy(Incidencias $incidencias)
     {
-        $this->authorize('delete', $incidencia);
-        $incidencia->delete();
-        return redirect()->route('incidencia.index');
+        $incidencias->delete();
+
+        return redirect()->route('incidencias.index')->with('success', 'Producto Borrado con exito');
     }
 }

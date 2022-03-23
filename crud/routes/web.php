@@ -15,10 +15,16 @@ use App\Http\Controllers\IncidenciasController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home')->name('home');
 });
 
-Route::resource('incidencias', IncidenciasController::class);
+Route::resource('/incidencias', IncidenciasController::class)->middleware(['auth']);
+
+
+
+Route::fallback(function () {
+    return redirect('/');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

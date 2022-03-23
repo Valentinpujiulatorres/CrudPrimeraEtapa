@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class IncidenciasRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class IncidenciasRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Gate::allows('comprobar_role');
     }
 
     /**
@@ -24,7 +25,10 @@ class IncidenciasRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'fecherror' => 'required', 
+            'error' => 'required|max:40',  
+            'tipoerror' => 'required', 
+            'descerror' => 'required',
         ];
     }
 }
