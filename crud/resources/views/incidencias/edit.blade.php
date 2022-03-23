@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('incidencias.layout')
 @section('title', 'Editar Incidencia')
 
 @section('content')

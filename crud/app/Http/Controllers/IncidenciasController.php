@@ -32,9 +32,9 @@ class IncidenciasController extends Controller
         return redirect()->route('incidencias.index');
     }
 
-    public function show(Incidencias $incidencias)
+    public function show(Incidencias $incidencia)
     {
-        return view('incidencias.show', compact('incidencias'));
+        return view('incidencias.show', compact('incidencia'));
     }
 
     public function edit($incidencias)

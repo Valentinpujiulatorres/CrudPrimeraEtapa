@@ -1,26 +1,42 @@
-@extends('layouts.head')
-@section('title', 'Incidencia')
-
+@extends('incidencias.layout')
+  
 @section('content')
-    <div class="bg-dark p-5">
-        <div class="container d-flex justify-content-center align-items-center">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr class="text-center">
-                        <th scope="col">Id</th>
-                        <th scope="col">@lang('Error')</th>
-                        <th scope="col">@lang('Tipo del error')</th>
-                        <th scope="col">@lang('Descripcion del error')</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr class="text-center bg-white">
-                            <td>{{ $incidencia->id }}</td>
-                            <td>{{ $incidencia->error }}</td>
-                            <td>{{ $incidencia->tipoerror }}</td>
-                            <td>{{ $incidencia->descerror }}</td>
-                </tbody>
-            </table>
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2 style="color: #FFD700;">Informacion de la incidencia</h2>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-danger" href="{{ route('incidencias.index') }}"> Volver atras</a>
+            </div>
         </div>
     </div>
-
+    <hr><br>
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong class="text-warning">Fecha del error</strong>
+                    <b>{{ $incidencia->fecherror }}</b>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong class="text-warning" >Error</strong>
+                    <i>{{$incidencia->error}}</i>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong class="text-warning">Tipo de error</strong>
+                <b>  {{ $incidencia->tipoerror}}</b>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong class="text-warning">Descripcion del Error</strong>
+                <b>{{ $incidencia->descerror }}</b>
+            </div>
+        </div>
+    </div>
+@endsection
