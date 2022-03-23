@@ -51,7 +51,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
             <div class="form-group">
                 <strong>Precio por Ud</strong>
-               <input  style="width: 15%;" type="float" class="form-control" name="precio" placeholder="$/ud">
+               <input  style="width: 15%;" type="number" step="0.01" class="form-control" name="precio" placeholder="$/ud">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
