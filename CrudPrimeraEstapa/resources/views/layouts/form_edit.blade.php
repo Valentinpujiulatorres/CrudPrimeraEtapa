@@ -132,7 +132,6 @@
         <div class="col-md-12 text-center">
             <button type="submit"
                 class="btn btn-success p-2 pl-4 pr-4 m-1 mb-4 bg-success">@lang('traduccion.Edit User')</button>
-            <button type="reset" class="btn btn-warning p-2 pl-4 pr-4 m-1 mb-4 bg-warning">@lang('traduccion.Clean up')</button>
         </div>
     </div>
 
