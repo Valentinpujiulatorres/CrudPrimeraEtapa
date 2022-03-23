@@ -4,7 +4,7 @@
     <BreezeAuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Edit
+                Editar imagen
             </h2>
         </template>
 
@@ -12,24 +12,32 @@
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
+                        <!-- Submit del formulario de la forma que recomienda Inertia. Cito la documentación:
+                        While it's possible to make classic form submissions with Inertia, it's not recommended, as they cause 
+                        full page reloads. Instead, it's better to intercept form submissions and then make the request using Inertia. -->
                         <form @submit.prevent="submit">
                             <div>
-                                <label for="title">Title</label>
+                                <label for="titulo">Título</label>
                                 <input
                                     type="text"
-                                    v-model="form.title"
+                                    v-model="form.titulo"
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                                 />
                             </div>
-                            <div>
-                                <label for="title">Description</label>
+                            <div class="mt-4">
+                                <label for="descripcion">Descripción</label>
                                 <textarea
-                                    name="description"
+                                    name="descripcion"
                                     type="text"
-                                    v-model="form.description"
+                                    v-model="form.descripcion"
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                                 >
                                 </textarea>
+                            </div>
+                            <div class="mt-4">
+                                <label for="imagen">Imagen</label>
+                                <input type="file" @input="form.imagen = $event.target.files[0]" />
+                                <!-- Como se suben las imágenes de una en una, basta con ese $event.target.files[0] -->
                             </div>
 
                             <!-- submit -->
@@ -46,30 +54,41 @@
     </BreezeAuthenticatedLayout>
 </template>
 
-<script>
+<script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
+import BreezeLabel from "@/Components/Label";
 import { Head } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from '@inertiajs/inertia';
+
+const props = defineProps({
+    imgs: Object
+});
+
+const form = useForm({
+    titulo: props.imgs.titulo,
+    descripcion: props.imgs.descripcion,
+    imagen: props.imgs.imagen,
+});
+
+function submit() {
+    Inertia.post(`/imgs/${props.imgs.id}`, {
+    _method: 'put',
+    titulo: form.titulo,
+    descripcion: form.descripcion,
+    imagen: form.imagen,
+})
+}
+
+//return { form, submit };
+
+</script>
+
+<script>
 export default {
     components: {
         BreezeAuthenticatedLayout,
         Head,
-    },
-    setup(props) {
-        const form = useForm({
-            title: props.post.title,
-            description: props.post.description,
-        });
-
-        return { form };
-    },
-    props: {
-        post: Object,
-    },
-    methods: {
-        submit() {
-            this.form.put(route("posts.update", this.post.id));
-        },
     },
 };
 </script>

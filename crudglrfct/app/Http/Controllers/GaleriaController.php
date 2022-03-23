@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Imagen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class GaleriaController extends Controller
@@ -80,11 +81,7 @@ class GaleriaController extends Controller
     public function edit(Imagen $img)
     {
         return Inertia::render('Edit', [
-            'img' => [
-                'id' => $img->id,
-                'titulo' => $img->titulo,
-                'descripcion' => $img->descripcion
-            ]
+            'imgs' => $img
         ]);
     }
 
@@ -95,14 +92,23 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Imagen $img)
+    public function update(Imagen $img, Request $request)
     {
-        $data = Request::validate([
+        //$imgs = $img->imagen;
+        if ($request->file('imagen')) {
+            Storage::delete('public/'. $img->imagen);
+            
+            $img->imagen = $request->file('imagen')->store('public/images');
+            $img->imagen = $request->file('imagen')->hashName();
+            
+            $img->update($request->except('_method'));
+            
+        }
+
+        /* $data = Request::validate([
                 'title' => ['required', 'max:90'],
                 'description' => ['required'],
-            ]);
-        $img->update($data);
-        
+            ]); */
 
         return Redirect::route('imgs.index');
     }
@@ -114,10 +120,10 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Imagen $img)
+    public function destroy(Request $request, Imagen $img)
     {
         $img->delete();
-        
+        //$request->session()->flash('success', 'Post deleted successfully!');
         return Redirect::route('imgs.index');
     }
 }
