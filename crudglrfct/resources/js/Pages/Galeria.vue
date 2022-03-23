@@ -13,8 +13,8 @@
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <div class="mb-4">
-                            <Link class="px-6 py-2 mb-2 text-green-100 bg-green-500 rounded"
-                                :href="route('imgs.create')">
+                            <Link class="px-6 py-2 mb-2 btn btn-success"
+                                :href="route('imgs.create')" as="button">
                                 Nueva imagen
                             </Link>
                         </div>
@@ -26,42 +26,49 @@
                                 <td class="px-4 py-2">Acción</td>
                             </thead>
                             <tbody>
+                                <!-- Recupero las imágenes de la BBDD y recorro con v-for, mostrando columna por columna -->
                                 <tr v-for="imagen in imgs.data" :key="imagen.id">
                                     <td class="px-4 py-2">{{ imagen.id }}</td>
                                     <td class="px-4 py-2">{{ imagen.titulo }}</td>
                                     <td class="px-4 py-2">
+                                        <!-- Así puedo recoger la ruta donde tengo todas mis imágenes almacenadas -->
                                         <img :src="'/storage/images/'+imagen.imagen" alt="image" />
                                     </td>
                                     <td class="px-4 py-2 font-extrabold">
-                                        <Link class="text-green-700" :href="route('imgs.edit', imagen.id)">
+                                        <Link class="btn btn-warning" :href="route('imgs.edit', imagen.id)" as="button">
                                             Edit
                                         </Link>
-                                        <Link @click="destroy(imagen.id)" class="text-red-700">
+                                        <!-- Asocia el botón de eliminar a su imagen correspondiente -->
+                                        <Link @click="destroy(imagen.id)" class="btn btn-danger" as="button">
                                             Delete
                                         </Link>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- <pagination :links="imagens.links" /> -->
+                        <pagination class="mt-6" :links="imgs.links" />
                     </div>
                 </div>
             </div>
         </div>
     </BreezeAuthenticatedLayout>
 </template>
-
+<style scoped>
+    
+</style>
 <script>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import BreezeNavLink from "@/Components/NavLink.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { Link } from "@inertiajs/inertia-vue3";
+import Pagination from '@/Components/Pagination';
 export default {
     components: {
         BreezeAuthenticatedLayout,
         Head,
         BreezeNavLink,
         Link,
+        Pagination,
     },
     props: {
         imgs: Object,

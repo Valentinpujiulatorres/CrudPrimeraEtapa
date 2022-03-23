@@ -12,6 +12,9 @@
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
+                        <!-- Submit del formulario de la forma que recomienda Inertia. Cito la documentación:
+                        While it's possible to make classic form submissions with Inertia, it's not recommended, as they cause 
+                        full page reloads. Instead, it's better to intercept form submissions and then make the request using Inertia. -->
                         <form @submit.prevent="submit">
                             <div>
                                 <label for="titulo">Título</label>
@@ -34,6 +37,7 @@
                             <div class="mt-4">
                                 <label for="imagen">Imagen</label>
                                 <input type="file" @input="form.imagen = $event.target.files[0]" />
+                                <!-- Como se suben las imágenes de una en una, basta con ese $event.target.files[0] -->
                             </div>
 
                             <!-- submit -->
