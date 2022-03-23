@@ -20,13 +20,13 @@
                         :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link style="text-decoration: none;" :href="route('contactos.index')"
-                        :active="request()->routeIs('contactos.index')">
-                        {{ __('traduccion.Contacts') }}
+                    <x-nav-link style="text-decoration: none;" :href="route('usuarios.index')"
+                        :active="request()->routeIs('usuarios.index')">
+                        {{ __('traduccion.Users') }}
                     </x-nav-link>
-                    <x-nav-link style="text-decoration: none;" :href="route('contactos.create')"
-                        :active="request()->routeIs('contactos.create')">
-                        {{ __('traduccion.Create Contact') }}
+                    <x-nav-link style="text-decoration: none;" :href="route('usuarios.create')"
+                        :active="request()->routeIs('usuarios.create')">
+                        {{ __('traduccion.Create User') }}
                     </x-nav-link>
                 </div>
             </div>

@@ -8,7 +8,7 @@
             </div>
         </header>
         <div class="bg-dark p-5">
-            <h1 class="text-center text-white pb-4"><u>@lang('traduccion.Contacts')</u></h1>
+            <h1 class="text-center text-white pb-4"><u>@lang('traduccion.Users')</u></h1>
             <div class="container d-flex justify-content-center align-items-center">
                 <table class="table">
                     <thead class="thead-dark">
@@ -20,7 +20,6 @@
                             <th scope="col">@lang('traduccion.Date of birth')</th>
                             <th scope="col">@lang('traduccion.Phone')</th>
                             <th scope="col">@lang('traduccion.Email')</th>
-                            <th scope="col">@lang('traduccion.Studies')</th>
                             <th scope="col">@lang('traduccion.License')</th>
                             <th scope="col">@lang('traduccion.Description')</th>
                             <th scope="col">Favicon</th>
@@ -29,7 +28,7 @@
                                 @auth
                                     @can('create', \App\Models\Usuario::class)
                                         <button class="btn btn-primary"><a class="text-white"
-                                            href="{{ route('usuarios.create') }}">@lang('traduccion.Create Contact')</a></button>
+                                            href="{{ route('usuarios.create') }}">@lang('traduccion.Create User')</a></button>
                                     @endcan
                                 @endauth
                             </th>
@@ -46,7 +45,6 @@
                                 <td>{{ $usuario->fecha_de_nacimiento }}</td>
                                 <td>{{ $usuario->telefono }}</td>
                                 <td>{{ $usuario->email }}</td>
-                                <td>{{ $usuario->estudios }}</td>
                                 <td>{{ $usuario->carnet }}</td>
                                 <td>{{ $usuario->descripcion }}</td>
                                 <td>{{ $usuario->favicon }}</td>

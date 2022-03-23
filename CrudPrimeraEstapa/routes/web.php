@@ -27,3 +27,6 @@ Route::resource('/usuarios', UsuarioController::class)->middleware(['auth']);
 Route::fallback(function () {
     return redirect('/');
 });
+
+Route::get('/set_language/{lang}', [App\Http\Controllers\Controller::class, 'set_language'])->name('set_language');
+require __DIR__.'/auth.php';

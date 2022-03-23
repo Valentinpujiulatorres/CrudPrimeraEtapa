@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
 class CreateUsersTable extends Migration
 {
     /**
@@ -15,8 +13,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            // En el esquema de la tabla añadimos un rol de tipo enum
-// Puede ser o admin, usuario o invitado, por defecto admin
+                        // En el esquema de la tabla añadimos un rol de tipo enum
+            // Puede ser o admin, usuario o invitado, por defecto admin
             $table->enum('role', ['admin', 'usuario', 'invitado'])->defaultValue('admin');
             $table->string('name');
             $table->string('email')->unique();
@@ -26,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

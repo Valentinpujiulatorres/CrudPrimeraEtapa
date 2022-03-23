@@ -13,7 +13,7 @@ class UsuarioSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
         $usuarios = [
             [
                 'user_id' => '1',
@@ -21,9 +21,8 @@ class UsuarioSeeder extends Seeder
                 'apellido' => 'Novel',
                 'edad' => '22',
                 'fecha_de_nacimiento' => '1999/03/09',
-                'telefono' => '639156810',
+                'telefono' => '639156816',
                 'email' => 'cnovel@cifpfbmoll.eu',
-                'estudios' => 'daw',
                 'carnet' => 'B',
                 'imagen' => ''
             ],
@@ -35,9 +34,8 @@ class UsuarioSeeder extends Seeder
                 'fecha_de_nacimiento' => '1999/09/29',
                 'telefono' => '656192413',
                 'email' => 'pruiz@cifpfbmoll.eu',
-                'estudios' => 'dam',
                 'carnet' => 'B',
-                'imagen' => ''
+                'imagen' => ''            
             ],
             [
                 'user_id' => '1',
@@ -47,7 +45,6 @@ class UsuarioSeeder extends Seeder
                 'fecha_de_nacimiento' => '1999/08/23',
                 'telefono' => '656192455',
                 'email' => 'rmartinez@cifpfbmoll.eu',
-                'estudios' => 'asix',
                 'carnet' => '',
                 'imagen' => ''
             ],

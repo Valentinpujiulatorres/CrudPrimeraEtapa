@@ -14,7 +14,7 @@ class CreateSoftdeleteTable extends Migration
     public function up()
     {
         Schema::create('softdelete', function (Blueprint $table) {
-            $table->softDeletes();
+            $table->softDeletes(); 
         });
     }
 

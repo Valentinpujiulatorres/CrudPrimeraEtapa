@@ -41,4 +41,4 @@ class UserSeeder extends Seeder
         // usamos db:table e insertamos en la tabla
         DB::table('users')->insert($user);
     }
-} 
+}

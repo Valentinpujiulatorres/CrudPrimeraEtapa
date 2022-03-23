@@ -1,64 +1,196 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Guía de comandos Laravel
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Crear proyecto
+composer create-project laravel/laravel x
 
-## About Laravel
+## Breeze
+1. - composer require laravel/breeze --dev
+2. - php artisan breeze:install
+3. - npm install
+4. - npm run dev
+5. - php artisan migrate (La bd ya debe estar creada)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Bootsrap
+1. - npm install bootstrap
+2. - <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+(Insertar link en layout plantilla )
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Rutas
+Route::resource('x', xController::class)->middleware(['auth']);
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Si queremos cambiar algo en el nombre de la url le añadimos parameters a la resource
+Route::resource('centros', CentroController::class)->parameters(['centros'=>'x'])->names('centros'); 
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Resources comando (Crear controllador tipo resource y modelo)
+php artisan make:controller PhotoController --model=Photo --resource
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Controller
+php artisan make:controller xController
+php artisan make:controller xController --resource
 
-## Laravel Sponsors
+## Crear modelo
+php artisan make:model x
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Migrar
+php artisan migrate 
+php artisan make:migration add_x_to_table_x
+php artisan make:fresh --seed
+php artisan migrate:reset
+composer require doctrine/dbal (renombrar columna)
 
-### Premium Partners
+## Seeder (Mejor usar seeder llamando al factory)
+php artisan make:seeder xSeeder
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- Llenas con:
+  -  Un array como $usuarios = [[ "name" = ... ]] en la función run
+  - DB::table('users')->insert($users); esto va tras el array
+  -  $this->call([UserSeeder::class]); esto va en el databaseSeeder
+  - Comando para insertarlos es php artisan db:seed
 
-## Contributing
+## Factory
+1. - php artisan make:factory xFactory
+2. - php artisan migrate:fresh --seed
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Valor por default en migracion y valor por defecto en factory
+$table->string('user_role')->default('propietario');
+'user_role' => $this->faker->randomElement(['super_admin','admin','propietario','cliente'])
+Si quieres utilizar faker con idioma actual, te vas al config/app.php y le cambias en faker_locale
 
-## Code of Conduct
+## Modelo insertar datos
+Poner en filleable los campos de la bd, deben llamarse igual los input names que las columnas de la bd.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+protected $fillable = ['name','terminos'=> 'boolean'];
 
-## Security Vulnerabilities
+## Gates
+- En App\Providers\AuthServiceProvider metes esto:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Gate::define('update-post', function (User $user, Post $post) {
+     return $user->id === $post->user_id;
+});
 
-## License
+- Controlador
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+if (! Gate::allows('update-post', $post)) {
+    abort(403);
+}
+
+## Policies
+- php artisan make:policy PostPolicy --model=Post
+- En App\Providers\AuthServiceProvider metes esto:
+- return $user->id === $post->user_id;
+
+
+## Listar routes
+php artisan route:list
+
+## Request comando 
+php artisan make:request StoreRequest
+
+## Lenguajes comando
+composer require laraveles/spanish
+php artisan vendor:publish --tag=lang
+Config - app.php
+
+// Ej: español
+'locale'          => 'es',
+
+Utilizar plantilla ya hecha en practica_auth
+
+Modo rafa:
+- composer require laravel-lang/lang (Idiomas)
+- composer require laravel-lang/publisher (Comando anterior)
+- php artisan lang:add en es ca eu gl
+
+## Despliegue
+- cp .env-example .env
+- nano .env y pones credenciales
+- chmod -R 777 storage
+- composer update
+- php artisan storage:link
+- <td> <img src="{{asset("image/". $post->image) }}" width="150px"></td>
+
+
+
+
+
+
+
+
+
+
+
+# Proyecto con laravel (CRUD_auth_authorize)
+## Como funciona ?
+
+El proyecto trata de una agenda de contactos donde podrás realizar todos las operaciones CRUD siempre que tengas los permisos para ello ya que existen tres tipos de usuarios ['admin', 'usuario', 'invitado'] por defecto cuando te registras entras como administrador.
+
+Por defecto la base de datos trae a tres usuarios para que puedas probar el funcionamiento ya que tiene cada uno un tipo de usuario para ello ve a iniciar sessión. 
+
+- Usuario admin: gnovel@cifpfbmoll.eu / Contraseña: mysqlroot
+- Usuario usuario: ozaaj@cifpfbmoll.eu / Contraseña: mysqlroot
+- Usuario invitado: dgonzalezl@cifpfbmoll.eu / Contraseña: mysqlroot
+
+### ¡Posible error al editar en remoto!
+
+También tenemos en el navbar diferentes paginas Home, Panel, Contactos y Crear usuario dependiendo el tipo de usuario podras acceder o no.
+
+Por último tenemos diferentes idiomas en nustra agenda como Español o Inglés.
+## Servidor Remoto 
+
+* [Enlace al servidor remoto](http://gnovel.ifc33b.cifpfbmoll.eu/CRUD_auth_authorize/public/) 
+
+## Archivo .env:
+
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:pMIMqStQust5qofG8pufWyuTJL2Z9Ftw8TipF4jN28M=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=pgsql
+DB_HOST=gnovel.ifc33b.cifpfbmoll.eu
+DB_PORT=5432
+DB_DATABASE=gnovel_CRUD_auth_authorize
+DB_USERNAME=gnovel
+DB_PASSWORD=abc123.
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DRIVER=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=null
+MAIL_FROM_NAME="${APP_NAME}"
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"

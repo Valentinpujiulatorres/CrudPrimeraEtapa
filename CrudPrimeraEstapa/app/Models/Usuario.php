@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Usuario extends Model
 {
     use HasFactory;
-    // eliminacion temporal (suave)
-    use softDeletes;
 
     // protege los campos para permitir actualizacion
     protected $fillable = [
