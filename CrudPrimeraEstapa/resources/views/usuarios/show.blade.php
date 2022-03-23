@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('components.head')
 @section('title', 'Usuario')
 
 @section('content')

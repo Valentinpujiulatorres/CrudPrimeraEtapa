@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('components.head')
 @section('title', 'Crear Usuario')
 
 @section('content')
@@ -18,7 +18,7 @@
                     @endif
                     <form class="form-horizontal" action="{{ route('usuarios.store', $usuario) }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    @include('layouts.form')
+                    @include('components.form')
                     </form>
                 </div>
             </div>

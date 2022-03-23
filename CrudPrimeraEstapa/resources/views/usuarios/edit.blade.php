@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('components.head')
 @section('title', 'Editar Usuario')
 
 @section('content')
@@ -19,7 +19,7 @@
                     <form class="form-horizontal" action="{{ url('usuarios/'.$usuario->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    @include('layouts.form_edit')
+                    @include('components.form_edit')
                     </form>
                 </div>
             </div>

@@ -21,7 +21,7 @@
 
 <body>
     <header>
-        @include('layouts.navigation')
+        @include('components.navigation')
     </header>
     @yield('content')
 </body>

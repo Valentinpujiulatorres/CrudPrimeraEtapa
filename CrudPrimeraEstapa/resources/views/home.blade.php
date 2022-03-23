@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('components.head')
 @section('title', 'Home')
 @section('content')
 <div class="min-h-screen bg-gray-100"> 
