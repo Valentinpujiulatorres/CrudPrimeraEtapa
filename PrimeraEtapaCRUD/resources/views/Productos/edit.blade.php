@@ -25,7 +25,7 @@
     </div>
 @endif
    
-<form  style="margin-top: 5%;" action="{{ route('productos.update',$producto->id) }}" method="POST">
+<form  style="margin-top: 5%;" action="{{ route('productos.update',$producto->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <!-- Formulario agregando los old values para que en caso de error recuerde el value previo -->
