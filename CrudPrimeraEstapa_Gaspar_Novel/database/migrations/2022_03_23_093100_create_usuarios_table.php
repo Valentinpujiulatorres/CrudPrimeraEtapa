@@ -40,7 +40,8 @@ class CreateUsuariosTable extends Migration
             // Valor de una imagen
             $table->string('imagen')->nullable();
             // Recoge el tiempo
-            $table->timestamps();         
+            $table->timestamps(); 
+            $table->softDeletes();         
         });
     }
 
