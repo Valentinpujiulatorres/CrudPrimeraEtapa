@@ -60,9 +60,9 @@ class IncidenciasController extends Controller
                         ->with('success','Producto actualizado con exito');
     }
 
-    public function destroy(Incidencias $incidencias)
+    public function destroy(Incidencias $incidencia)
     {
-        $incidencias->delete();
+        $incidencia->delete();
 
         return redirect()->route('incidencias.index')->with('success', 'Producto Borrado con exito');
     }
