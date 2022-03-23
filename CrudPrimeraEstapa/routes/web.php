@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\LanguageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +30,5 @@ Route::fallback(function () {
     return redirect('/');
 });
 
-Route::get('/set_language/{lang}', [App\Http\Controllers\Controller::class, 'set_language'])->name('set_language');
+Route::get('/set_language/{lang}', [LanguageController::class, 'set_language'])->name('set_language');
 require __DIR__.'/auth.php';
