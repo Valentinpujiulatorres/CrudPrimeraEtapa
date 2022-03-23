@@ -20,6 +20,7 @@
     @endif
    
     <table class="table table-stripped">
+        <thead>
         <tr>
             <th>ID P.</th>
             <th>Nombre</th>
@@ -27,6 +28,7 @@
             <th>Precio €</th>
             <th width="280px">Acciones</th>
         </tr>
+        </thead>
         @foreach ($productos as $producto)
         <tr>
             <td>{{ $producto->id }}</td>

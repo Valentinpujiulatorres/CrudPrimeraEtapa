@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 
 
-Route::resource('/productos', ProductoController::class );
+Route::resource('/productos', ProductoController::class )->middleware(['auth']);
 
 
 Route::get('/dashboard', function () {
