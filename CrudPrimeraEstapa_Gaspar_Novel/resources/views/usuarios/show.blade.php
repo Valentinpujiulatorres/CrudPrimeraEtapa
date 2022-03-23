@@ -34,7 +34,7 @@
                             <td>{{ $usuario->carnet }}</td>
                             <td>{{ $usuario->descripcion }}</td>
                             <td>{{ $usuario->favicon }}</td>
-                            <td>{{ $usuario->imagen }}</td>
+                            <td><img src="/imagenes/{{ $usuario->imagen}}"></td>
                         </tr>
                 </tbody>
             </table>

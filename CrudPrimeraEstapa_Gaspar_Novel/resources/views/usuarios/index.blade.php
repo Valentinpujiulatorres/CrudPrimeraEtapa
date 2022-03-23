@@ -48,7 +48,7 @@
                                 <td>{{ $usuario->carnet }}</td>
                                 <td>{{ $usuario->descripcion }}</td>
                                 <td>{{ $usuario->favicon }}</td>
-                                <td><img src="{{ $usuario->favicon }}"></td>
+                                <td><img src="/imagenes/{{ $usuario->imagen}}"></td>
                                 <th>
                                     @auth
                                         @can('update', \App\Models\Usuario::class)

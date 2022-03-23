@@ -24,6 +24,7 @@ class UsuarioFactory extends Factory
             'edad' => $this->faker->numberBetween(0,100),
             'telefono' => $this->faker->numerify('6########'),
             'email' => $this->faker->unique()->safeEmail,
+            'imagen' => 'navegador.jpg'
         ];
     }
 }

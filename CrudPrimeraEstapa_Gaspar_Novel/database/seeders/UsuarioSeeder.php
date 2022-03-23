@@ -24,7 +24,7 @@ class UsuarioSeeder extends Seeder
                 'telefono' => '639156816',
                 'email' => 'cnovel@cifpfbmoll.eu',
                 'carnet' => 'B',
-                'imagen' => ''
+                'imagen' => 'wp5977227.jpg'
             ],
             [
                 'user_id' => '2',
@@ -35,7 +35,7 @@ class UsuarioSeeder extends Seeder
                 'telefono' => '656192413',
                 'email' => 'pruiz@cifpfbmoll.eu',
                 'carnet' => 'B',
-                'imagen' => ''            
+                'imagen' => 'wp5977227.jpg'            
             ],
             [
                 'user_id' => '1',
@@ -46,7 +46,7 @@ class UsuarioSeeder extends Seeder
                 'telefono' => '656192455',
                 'email' => 'rmartinez@cifpfbmoll.eu',
                 'carnet' => '',
-                'imagen' => ''
+                'imagen' => 'wp5977227.jpg'
             ],
         ];
         // usamos db:table e insertamos en la tabla

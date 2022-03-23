@@ -25,8 +25,18 @@ class UsuarioController extends Controller
 
     public function store(UsuarioRequest $request)
     {
+        $request->validated();
 
-        Usuario::create($request->validated());
+        $usuario = $request->all();
+
+        if($file = $request->file('imagen')){
+            $path = public_path() . '/imagenes';
+            $fileName = $file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $usuario['imagen'] = "$fileName";
+        }
+
+        Usuario::create($usuario);
         return redirect()->route('usuarios.index');
         
     }
