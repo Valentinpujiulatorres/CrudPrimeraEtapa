@@ -7,7 +7,7 @@
 @section('content')
     <div class="bg-dark p-5">
         <div class="container d-flex justify-content-center align-items-center">
-            <table id="articulos" class="table">
+            <table id="usuarios" class="table">
                 <thead class="thead-dark">
                     <tr class="text-center">
                         <th scope="col">Id</th>
@@ -49,7 +49,7 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
 <script>
 $(document).ready( function () {
-    $('#articulos').DataTable(
+    $('#usuarios').DataTable(
         "lengtMenu": [[5,10,50, -1], [5,10,50, "All"]]
     );
 } );
