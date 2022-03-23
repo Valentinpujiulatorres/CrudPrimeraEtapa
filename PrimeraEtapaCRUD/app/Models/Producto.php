@@ -13,5 +13,5 @@ class Producto extends Model
     protected $table = 'productos';
 
     // La variable protegida $fillable hace referencia a aquellos parametros que nosotros deberemos pasar via request
-    protected $fillable = ["nombre", "descripcion", "stock", "precio", "procedencia"];
+    protected $fillable = ["nombre", "descripcion", "stock", "precio", "procedencia", "imagen"];
 }

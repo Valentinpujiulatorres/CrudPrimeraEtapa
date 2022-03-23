@@ -13,6 +13,11 @@
     </div>
     <hr><br>
     <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                    <img width="40%" src="/imagenes/{{$producto->imagen}}">
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong class="text-warning">Nombre</strong>

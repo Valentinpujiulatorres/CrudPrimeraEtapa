@@ -48,10 +48,22 @@ class ProductoController extends Controller
             'descripcion'=>'required',
             'stock'=>'required',
             'precio'=>'required',
-            'procedencia'=>'required'
+            'procedencia'=>'required',
+            'imagen'=>'required'
         ]);
 
-        Producto::create($request->all());
+        $producto = $request->all();
+
+        if($imagen = $request->file('imagen')){
+            $rutaGuardarImagen = 'imagenes/' ;
+            //Ademas de la ruta por convenio queremos llamar a las imagaenes de cierta manera = Fecha + nombre + tipo de Archivo
+            $imagenProducto = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImagen, $imagenProducto);
+
+            $producto['imagen'] = "$imagenProducto";
+        }
+
+        Producto::create($producto);
 
         return redirect()->route('productos.index')
         ->with('success','Producto agregado con exito');

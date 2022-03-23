@@ -25,7 +25,7 @@
     </div>
 @endif
    
-<form  style="margin-top: 5%;" action="{{ route('productos.store') }}" method="POST">
+<form  style="margin-top: 5%;" action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
   
     <!-- Formulario agregando los old values para que en caso de error recuerde el value previo -->
@@ -65,6 +65,12 @@
                     <option value="Spain">Spain</option>
                     <option value="China">China</option>
                 </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
+            <div class="form-group">
+                <strong>Imagen</strong>
+               <input   style="width: 45%;" type="file" class="form-control" name="imagen" >
             </div>
         </div>
         
