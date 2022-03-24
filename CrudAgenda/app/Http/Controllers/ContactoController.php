@@ -70,6 +70,7 @@ class ContactoController extends Controller
     public function show(Contacto $contacto)
     {
         return view('Contacto.show',compact('contacto'));
+        
     }
 
     /**
