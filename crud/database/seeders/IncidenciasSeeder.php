@@ -20,19 +20,22 @@ class IncidenciasSeeder extends Seeder
                 'fecherror' => '10/10/2019',
                 'error' => '404',
                 'tipoerror' => 'grave',
-                'descerror' => 'Este error no me deja proseguir cuando voy a mirar cursos'
+                'descerror' => 'Este error no me deja proseguir cuando voy a mirar cursos',
+                'imagen' => 'Ashen Pyke.jfif'
             ],
             [
                 'fecherror' => '08/08/2020',
                 'error' => 'Congelacion',
                 'tipoerror' => 'grave',
-                'descerror' => 'Otro error tipico en el que se congela'
+                'descerror' => 'Otro error tipico en el que se congela',
+                'imagen' => 'Ashen Pyke.jfif'
             ],
             [
                 'fecherror' => '05/05/2021',
                 'error' => 'Bugg visual',
                 'tipoerror' => 'leve',
-                'descerror' => 'Error leve visual'
+                'descerror' => 'Error leve visual',
+                'imagen' => 'Ashen Pyke.jfif'
             ]
         ];
         // usamos db:table e insertamos en la tabla

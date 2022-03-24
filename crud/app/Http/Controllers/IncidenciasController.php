@@ -28,8 +28,27 @@ class IncidenciasController extends Controller
 
     public function store(IncidenciasRequest $request)
     {
-        Incidencias::create($request->validated());
-        return redirect()->route('incidencias.index');
+        $request->validate([
+            'fecherror'=>'required',
+            'error'=>'required',
+            'tipoerror'=>'required',
+            'descerror'=>'required',
+            'imagen'=>'required',
+        ]);
+
+        $incidencia = $request->all();
+        // condicional para la subida de imagenes
+        if($file = $request->file('imagen')){
+            $path = public_path() . '/imagenes';
+            $fileName = $file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $incidencia['imagen'] = "$fileName";
+        }
+
+        Incidencias::create($incidencia);
+
+        return redirect()->route('incidencias.index')
+        ->with('success','Incidencia creada con exito');
     }
 
     public function show(Incidencias $incidencia)

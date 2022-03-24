@@ -11,11 +11,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="well well-sm">
-                    @if ($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <li class="text-danger text-center pt-4">{{ $error }}</li>
-                        @endforeach
-                    @endif
                     <form class="form-horizontal" action="{{ route('incidencias.store', $incidencia) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @include('layouts.form')

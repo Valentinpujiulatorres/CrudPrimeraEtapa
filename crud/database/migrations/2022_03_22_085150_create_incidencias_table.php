@@ -22,6 +22,7 @@ class CreateIncidenciasTable extends Migration
             $table->string('error')->unique()->comment('Error');
             $table->enum('tipoerror', ['leve', 'grave'])->nullable();
             $table->string('descerror', 200)->comment('Descripcion del error, como ocurrió');
+            $table->string('imagen');
         });
     }
 

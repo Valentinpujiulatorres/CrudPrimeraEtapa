@@ -16,7 +16,8 @@ class Incidencias extends Model
         'fecherror',
         'error', 
         'tipoerror', 
-        'descerror', 
+        'descerror',
+        'imagen',
 
     ];
 

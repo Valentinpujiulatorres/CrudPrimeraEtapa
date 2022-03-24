@@ -38,5 +38,10 @@
                 <b>{{ $incidencia->descerror }}</b>
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                    <img width="40%" src="/imagenes/{{$incidencia->imagen}}">
+            </div>
+        </div>
     </div>
 @endsection

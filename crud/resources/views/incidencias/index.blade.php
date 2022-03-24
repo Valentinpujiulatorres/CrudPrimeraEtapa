@@ -5,10 +5,10 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h4 style="color: #DAA520;">Listado de Incidencias</h4>
+                <h4 style="color: black;">Listado de Incidencias</h4>
             </div>
             <div class="pull-right">
-                <a style="margin: 4%;" class="btn btn-warning" href="{{ route('incidencias.create') }}">Crear Incidencia</a>
+                <a style="margin: 4%;" class="btn btn-success" href="{{ route('incidencias.create') }}">Crear Incidencia</a>
             </div>
         </div>
     </div>
@@ -25,6 +25,7 @@
             <th>Error</th>
             <th>Tipo de error</th>
             <th>Descripcion del error</th>
+            <th>Imagen</th>
             <th width="280px">Acciones</th>
         </tr>
         @foreach ($incidencias as $incidencia)
@@ -33,6 +34,7 @@
             <td>{{ $incidencia->error }}</td>
             <td>{{ $incidencia->tipoerror }}</td>
             <td>{{ $incidencia->descerror }}</td>
+            <td><img style="width: 200px;" src="/imagenes/{{ $incidencia->imagen}}"></td>
             <td>
                 <form action="{{ route('incidencias.destroy',$incidencia->id) }}" method="POST">
 

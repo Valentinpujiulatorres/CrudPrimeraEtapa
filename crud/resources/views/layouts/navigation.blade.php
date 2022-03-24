@@ -57,6 +57,13 @@
                <input  style="width: 15%;" type="float" class="form-control" name="descerror" placeholder="Descripcion mas extensa del error y como ocurrió">
             </div>
         </div>
+         
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
+            <div class="form-group">
+                <strong>Imagen</strong>
+                <input   style="width: 200px;" type="file" class="form-control" name="imagen" >
+            </div>
+        </div>
         
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success">Enviar</button>

@@ -19,6 +19,7 @@ class IncidenciasFactory extends Factory
             'fecherror' => $this->faker->date,
             'error' => $this->faker->text,
             'descerror' => $this->faker->text,
+            'imagen' => 'navegador.jpg'
         ];
     }
 }

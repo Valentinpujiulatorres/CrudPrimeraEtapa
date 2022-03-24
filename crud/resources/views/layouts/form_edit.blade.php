@@ -48,6 +48,18 @@
             <br>
         @enderror
     </div>
+        
+    <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
+        <div class="form-group">
+            <strong>Imagen</strong>
+            <input   style="width: 200px;" type="file" class="form-control" name="imagen" >
+        </div>
+    </div>    
+    @error('imagen')
+            <br>
+            <small class="text-danger">*{{ $message }}</small>
+            <br>
+        @enderror
 
     <div class="form-group">
         <div class="col-md-12 text-center">
