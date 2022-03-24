@@ -65,7 +65,7 @@
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger" //onclick="SureToDelete()">Borra</button>
+                    <button type="submit" class="btn btn-danger" onclick="return SureToDelete() " //onclick="SureToDelete()">Borra</button>
                 </form>
             </td>
         </tr>

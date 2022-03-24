@@ -30,6 +30,9 @@
 
 ### Tecnologias Nuevas:
 
+
+1. #### Datatables 
+
 1. #### Select2
      
      Para mas info ver ejemplos > https://www.zentica-global.com/es/zentica-blog/ver/como-crear-el-menu-desplegable-select2-en-laravel-8-livewire-6073a4f27a333 
@@ -40,9 +43,9 @@
 
 
 1. #### SweetAlert
+    Programador senior explicaccion magistral https://www.youtube.com/watch?v=ulmNmifyAQ4
 
-
-    Explicacion Mas Funcional https://www.youtube.com/watch?v=Jocj2U_MlH0&ab_channel=CodersFree
+    Explicacion https://www.youtube.com/watch?v=Jocj2U_MlH0&ab_channel=CodersFree
     Para mas info ver ejemplos *(codepen exports) > https://sweetalert2.github.io/ 
 
     https://laracasts.com/discuss/channels/laravel/sweet-alert-in-laravel-not-working
