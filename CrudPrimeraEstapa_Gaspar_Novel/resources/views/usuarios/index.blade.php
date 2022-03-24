@@ -59,7 +59,7 @@
                                 <th></th>
                                 <th>
                                             <button class="btn btn-success"><a class="text-white"
-                                                href="{{ route('usuarios.show',$usuario->id) }}">Detalle</a></button>
+                                                href="{{ route('usuarios.show',$usuario->id) }}">@lang('traduccion.Detail')</a></button>
                                 </th>
                                 <th>
                                     @auth

@@ -13,6 +13,7 @@ return [
     "Create User" => "Crear Usuario",
     "User" => "Usuario",
     "Users" => "Usuarios",
+    "Detail" => "Detalle",
     "Clean up" => "Limpiar",
     "Contacts" => "Contactos",
     "You are logged in!" => "¡Estás conectado!",

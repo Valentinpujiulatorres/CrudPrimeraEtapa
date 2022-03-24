@@ -11,6 +11,7 @@ return [
     "Description" => "Description",
     "Create Contact" => "Create Contact",
     "Create User" => "Create User",
+    "Detail" => "Detail",
     "User" => "User",
     "Users" => "Users",
     "Clean up" => "Clean up",
