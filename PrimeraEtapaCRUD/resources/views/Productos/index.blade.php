@@ -2,6 +2,26 @@
 
 @section('content')
 
+<script>
+    function SureToDelete(){
+        Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  }
+    })}
+</script>
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -45,7 +65,7 @@
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger">Borra</button>
+                    <button type="submit" class="btn btn-danger" onclick="SureToDelete()">Borra</button>
                 </form>
             </td>
         </tr>

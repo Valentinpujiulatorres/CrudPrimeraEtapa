@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/plugins/sweetalert2/sweetalert2.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <title>Pagina de Productos</title>
 </head>
 <body style="margin: 0; padding:0;" class="container-fluid ">
@@ -18,5 +20,9 @@
     @yield('content')
     </div>
     
+    <script>
+        
+    </script>
+   
 </body>
 </html>

@@ -42,6 +42,8 @@
     Explicacion Mas Funcional https://www.youtube.com/watch?v=Jocj2U_MlH0&ab_channel=CodersFree
     Para mas info ver ejemplos *(codepen exports) > https://sweetalert2.github.io/ 
 
+    https://laracasts.com/discuss/channels/laravel/sweet-alert-in-laravel-not-working
+
     Explicacion menos funcional : https://dev.to/snehalk/how-to-use-sweetalert2-in-laravel-8-48lc
 
 1. #### Crud de Imagenes de Laravel 8 
