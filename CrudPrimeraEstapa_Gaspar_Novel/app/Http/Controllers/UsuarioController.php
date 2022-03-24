@@ -54,9 +54,17 @@ class UsuarioController extends Controller
     }
     // fuincion que actualiza un usuario utilizando autorizacion
     public function update(UsuarioRequest $request, Usuario $usuario)
-    {
+    {{
         $this->authorize('update', $usuario);
-        $usuario->update($request->all());
+        $usuario->update( $request->all());
+    }
+        if($file = $request->file('imagen')){
+            $path = public_path() . '/imagenes';
+            $fileName = time() . $file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $usuario['imagen'] = "$fileName";
+        }
+        $usuario->update();
         return redirect('usuarios');
     }
     // fuincion que elimina un usuario utilizando autorizacion
