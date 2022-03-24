@@ -1,6 +1,4 @@
-
-
-<fieldset>
+<fieldset enctype="multipart/form-data">
     <h1 class="text-center text-white pb-4 pt-5"><u>@lang('Crear Incidencia')</u></h1>
     <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id}}">    <div class="form-group m-3 ">
     <div class="form-group m-3 ">

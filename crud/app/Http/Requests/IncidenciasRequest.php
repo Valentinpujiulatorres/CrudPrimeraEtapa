@@ -29,6 +29,7 @@ class IncidenciasRequest extends FormRequest
             'error' => 'required|max:40',  
             'tipoerror' => 'required', 
             'descerror' => 'required',
+            'imagen' => 'required',
         ];
     }
 }

@@ -27,6 +27,7 @@ class IncidenciasController extends Controller
 
     public function store(IncidenciasRequest $request)
     {
+        
         $request->validate([
             'fecherror'=>'required',
             'error'=>'required',
@@ -46,8 +47,7 @@ class IncidenciasController extends Controller
 
         Incidencias::create($incidencia);
 
-        return redirect()->route('incidencias.index')
-        ->with('success','Incidencia creada con exito');
+        return redirect()->route('incidencias.index');
     }
 
     public function show(Incidencias $incidencia)
@@ -62,37 +62,49 @@ class IncidenciasController extends Controller
         return view('incidencias.edit', compact('incidencias'));
     }
 
-    public function update(Request $request, Incidencias $incidencia)
-    {
+    public function update(Request $request, Incidencias $incidencia, $id )
+    {{
          //Funcion de update de productos , metodo PUT *(Para mas info mirar edit.blade.php)
-         $request->validate([
+        $request->validate([
             'fecherror'=>'required',
             'error'=>'required',
             'tipoerror'=>'required',
             'descerror'=>'required',
-            'imagen'=>'required'
+            'imagen'=>'required',
         ]);
 
-        $incidencia->update($request->all());
         
+        $idincidencia=Incidencias::findOrFail($id);
+        if($request->hasFile('imagen')){
+        // aquí compruebo que exista la foto anterior
+        if (Storage::exists($incidencia->imagen))
+        {
+             // aquí la borro
+             Storage::delete($incidencia->imagen);
+            }
+            $incidencia->imagen=Storage::putFile('public/imagenes/', $request->file('imagen'));
+        }
+
+  // esta es la línea que faltaba. Llamo a la foto del modelo y le asigno la foto recogida por el formulario de actualizar.          
+        $incidencia->imagen=$nombreIncidencia; 
+
+          }
+        $incidencia->update($request->all());
         //Asignamos una redireccion de el metodo a la paginacion de index *(Metodo de este controlador )
-        return redirect()->route('incidencias.index')
-                        ->with('success','Producto actualizado con exito');
+        return redirect()->route('incidencias.index');
     }
 
     public function destroy(Incidencias $incidencia)
     {
         Gate::authorize('comprobar_role');
         $url = str_replace('storage', 'public', '../public/imagenes/' .$incidencia->imagen);
-        if ( isset($url) ) {
-            if ( true === $url ) {
+        if (isset($url) && file_exists($url)){
             unlink($url);
             $incidencia->delete();
             } else {
                 $incidencia->delete();
         }
-    }
-
-        return redirect()->route('incidencias.index')->with('success', 'Producto Borrado con exito');
+    
+        return redirect()->route('incidencias.index');
     }
 }
