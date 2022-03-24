@@ -40,6 +40,8 @@
 
     Para mas info ver ejemplos *(codepen exports) > https://sweetalert2.github.io/ 
 
+    Explicacion mas funcional : https://dev.to/snehalk/how-to-use-sweetalert2-in-laravel-8-48lc
+
 1. #### Crud de Imagenes de Laravel 8 
 
     https://www.youtube.com/watch?v=gkgaLqCySzg&list=RDCMUCLa5WaffYWAaJY09_l863yw&start_radio=1&rv=gkgaLqCySzg&t=328&ab_channel=Inform%C3%A1ticaDP 

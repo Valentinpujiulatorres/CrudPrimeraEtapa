@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/plugins/sweetalert2/sweetalert2.min.css">
     <title>Pagina de Productos</title>
 </head>
 <body style="margin: 0; padding:0;" class="container-fluid ">
