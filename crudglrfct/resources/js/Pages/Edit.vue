@@ -23,6 +23,7 @@
                                     v-model="form.titulo"
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                                 />
+                                <div v-if="errors.titulo" class="text-danger">{{ errors.titulo }}</div>
                             </div>
                             <div class="mt-4">
                                 <label for="descripcion">Descripción</label>
@@ -33,11 +34,17 @@
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                                 >
                                 </textarea>
+                                <div v-if="errors.descripcion" class="text-danger">{{ errors.descripcion }}</div>
                             </div>
                             <div class="mt-4">
                                 <label for="imagen">Imagen</label>
-                                <input type="file" @input="form.imagen = $event.target.files[0]" />
-                                <!-- Como se suben las imágenes de una en una, basta con ese $event.target.files[0] -->
+                            </div>
+                            <input class="mt-2" type="file" @input="form.imagen = $event.target.files[0]" />
+                            <!-- Como se suben las imágenes de una en una, basta con ese $event.target.files[0] -->
+                            <div v-if="errors.imagen" class="text-danger">{{ errors.imagen }}</div>
+                            <div v-if="form.imagen.length > 0" class="mt-4">
+                                
+                                <img :src="'/storage/images/'+form.imagen" alt="image" />
                             </div>
 
                             <!-- submit -->
@@ -55,14 +62,11 @@
 </template>
 
 <script setup>
-import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
-import BreezeLabel from "@/Components/Label";
-import { Head } from "@inertiajs/inertia-vue3";
-import { useForm } from "@inertiajs/inertia-vue3";
-import { Inertia } from '@inertiajs/inertia';
+
 
 const props = defineProps({
-    imgs: Object
+    imgs: Object,
+    errors: Object
 });
 
 const form = useForm({
@@ -85,10 +89,35 @@ function submit() {
 </script>
 
 <script>
+import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
+import BreezeLabel from "@/Components/Label";
+import { Head } from "@inertiajs/inertia-vue3";
+import { useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from '@inertiajs/inertia'
 export default {
+    props: {
+        errors: Object,
+    },
     components: {
         BreezeAuthenticatedLayout,
         Head,
+    },
+    setup() {
+        const form = useForm({
+            titulo: null,
+            descripcion: null,
+            imagen: null
+        });
+
+        function submit() {
+            Inertia.post(`/imgs/${props.imgs.id}`, {
+            _method: 'put',
+            titulo: form.titulo,
+            descripcion: form.descripcion,
+            imagen: form.imagen,
+        })}
+
+        return { form, submit };
     },
 };
 </script>

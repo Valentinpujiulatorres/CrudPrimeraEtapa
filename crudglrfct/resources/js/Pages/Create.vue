@@ -23,6 +23,7 @@
                                     v-model="form.titulo"
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                                 />
+                                <div v-if="errors.titulo" class="text-danger">{{ errors.titulo }}</div>
                             </div>
                             <div class="mt-4">
                                 <label for="descripcion">Descripción</label>
@@ -33,12 +34,14 @@
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                                 >
                                 </textarea>
+                                <div v-if="errors.descripcion" class="text-danger">{{ errors.descripcion }}</div>
                             </div>
                             <div class="mt-4">
                                 <label for="imagen">Imagen</label>
-                                <input type="file" @input="form.imagen = $event.target.files[0]" />
-                                <!-- Como se suben las imágenes de una en una, basta con ese $event.target.files[0] -->
                             </div>
+                            <input class="mt-2" type="file" @input="form.imagen = $event.target.files[0]" />
+                            <!-- Como se suben las imágenes de una en una, basta con ese $event.target.files[0] -->
+                            <div v-if="errors.imagen" class="text-danger">{{ errors.imagen }}</div>
 
                             <!-- submit -->
                             <div class="flex items-center mt-4">
@@ -61,6 +64,9 @@ import { Head } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia'
 export default {
+    props: {
+        errors: Object,
+    },
     components: {
         BreezeAuthenticatedLayout,
         Head,
