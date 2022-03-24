@@ -62,7 +62,7 @@ class IncidenciasController extends Controller
         return view('incidencias.edit', compact('incidencias'));
     }
 
-    public function update(Request $request, Incidencias $incidencia, $id )
+    public function update(Request $request, Incidencias $incidencia)
     {{
          //Funcion de update de productos , metodo PUT *(Para mas info mirar edit.blade.php)
         $request->validate([
@@ -72,24 +72,17 @@ class IncidenciasController extends Controller
             'descerror'=>'required',
             'imagen'=>'required',
         ]);
-
-        
-        $idincidencia=Incidencias::findOrFail($id);
-        if($request->hasFile('imagen')){
-        // aquí compruebo que exista la foto anterior
-        if (Storage::exists($incidencia->imagen))
-        {
-             // aquí la borro
-             Storage::delete($incidencia->imagen);
-            }
-            $incidencia->imagen=Storage::putFile('public/imagenes/', $request->file('imagen'));
-        }
-
-  // esta es la línea que faltaba. Llamo a la foto del modelo y le asigno la foto recogida por el formulario de actualizar.          
-        $incidencia->imagen=$nombreIncidencia; 
-
-          }
         $incidencia->update($request->all());
+        }
+        if($file = $request->file('imagen')){
+            $path = public_path() . '/imagenes';
+            $fileName = time() . $file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $incidencia['imagen'] = "$fileName";
+            
+        }
+        $incidencia->update();
+
         //Asignamos una redireccion de el metodo a la paginacion de index *(Metodo de este controlador )
         return redirect()->route('incidencias.index');
     }
