@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Contacto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 
 
@@ -17,9 +19,9 @@ class ContactoController extends Controller
      */
     public function index()
     {
-    /**Creo una variable datosContacto, sobre la tabla contacto,llamo al modelo Contacto 
-     * y doy un retorno de la vista index que es el historico con datosContactos con paginación de 5 es decir 
-     * limitador de 5 registros. 
+    /** Index vista principal para ver el historico de contactos
+     * 1. Hago un llamada a la base de datos (nombre de la tabla )->get donde optengo 
+     * 2.Retorno la vista index  
      */
         $contactos=DB::table('contactos')->get();
         return view('Contacto.index',compact('contactos'));
@@ -43,19 +45,19 @@ class ContactoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
-        /**dd($request) dd es un debuger para valorar los datos de respuesta de la petición; 
-         * $contacto=request()->all(); 
-            Con request all retorna todos los datos y tambien el token de seguridad
-    */ 
-
-
+    {
+        /** Function store 
+         * 1. Recibo una request a la que le pido que no retorne el token @crsf del formulario 
+         * 2. Compruebo que la imagen llega a la repuesta, si llega la guardo en uploads en el directorio public 
+         * 3. Sobre el modelo hago un insert a la base de datos con los datos del insert 
+         * 4. Finalmente hago una redirección al index para ver el Storage 
+        */
          $contacto=request()->except('_token');
          if($request->hasFile('Imagen')){
              $contacto['Imagen']=$request->file('Imagen')->store('uploads','public');
          }
-         
-        Contacto::insert($contacto);       
+
+        Contacto::insert($contacto);
         return redirect('contacto');
     }
 
@@ -78,12 +80,14 @@ class ContactoController extends Controller
      */
     public function edit($id)
     {
+        /** 1. Filtro por id
+         *  2.Creo una variable contacto que llama al modelo y filtro por id 
+         *  3.Retorno la vista edit, compact (contacto)
+         */ 
         $contacto=Contacto::find($id);
-
-
         return view('Contacto.edit',compact('contacto'));
-            redirect('contacto');
-        
+
+
     }
 
     /**
@@ -95,7 +99,37 @@ class ContactoController extends Controller
      */
     public function update(Request $request, Contacto $contacto)
     {
-        //
+        /**1.Optengo una request,optengo el modulo contacto 
+         * 2. Creo un array con nombre (contactoActualizado)
+         * 3. Optengo el nombre de la columna de la base de datos 
+         * 4. $request->atributo del arreglo 
+         * 5. Creo una variable respuesta que tiene el valor de el contacto, uso el método update, con los datos de contacto actualizado. 
+         * 6. Para la imagen confirmo que la respuesta es una imagen, esta respuesta estara guardada en el directorio uploads de public 
+         */
+
+
+        $contactoActualizado = ([
+
+            'NombreContacto' => $request->NombreContacto ,
+            'Apellidos' => $request->Apellidos,
+            'Direccion' => $request->Direccion,
+            'Edad'=>$request->Edad,
+
+
+
+        ]);
+        $respuesta=$contacto->update($contactoActualizado);
+
+        if($request->hasFile('Imagen')){
+            $contacto['Imagen']=$request->file('Imagen')->store('uploads','public');
+        }
+         
+
+        
+
+
+        return view('Contacto.edit',compact('contacto'));
+            redirect('contacto');
     }
 
     /**
@@ -106,12 +140,13 @@ class ContactoController extends Controller
      */
     public function destroy( $id)
     {
-        /**Llamo al módelo Contacto donde llamo la método destroy al que le paso 
-         * como parámetro el identificador de cada contacto, y realizo redirect a ruta contacto que corresponde 
-         * a la vista index
-         */
+        /** 1.Metodo destroy que recibe como parámetro id, una vwz recibo, este parámetro  
+         *  2.Accedo al directorio Storage:: disk directorio donde guardo las imagenes en el directorio public.
+         *  3.Una vez dentro de public, hago uso del metódo delete para destruir la imagen. 
+         *  4. Redireccionando a la raiz, este redirect tiene como función ir a index y mostrar los contactos actualizados despues de haber eliminado
+        */
 
-        Contacto::destroy($id); 
-        return redirect('contacto'); 
+    Storage::disk('public')->delete('');
+    return redirect('contacto');
     }
 }

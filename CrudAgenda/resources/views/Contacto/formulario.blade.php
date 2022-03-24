@@ -6,10 +6,10 @@
     <label for="id">Identificador</label>
     
     <label for="NombreContacto">Nombre Contacto </label>
-    <input type="text" name="NombreContacto" id="NombreContacto" placeholder="Escriba su nombre" value="{{ old('NombreContacto'),$contacto->NombreContacto }}">
+    <input type="text" name="NombreContacto" id="NombreContacto" placeholder="Escriba su nombre"">
     <br>
     <label for="Apellidos">Apellidos Contacto</label>
-    <input type="text" name="Apellidos" id="Apellidos" placeholder="Escriba sus apellidos" value="{{ old }}">
+    <input type="text" name="Apellidos" id="Apellidos" placeholder="Escriba sus apellidos" ">
     <br>
     <label for="Dirección">Dirección</label>
     <input type="text" name="Direccion" id="Direccion" placeholder="Escriba su correo electrónico ">
@@ -22,5 +22,6 @@
     <br>
     <input type="submit" value="Guardar Contacto">
     <br>
+    <a href="{{url('contacto/')}}">Retroceder 
 </form>
 </div>
