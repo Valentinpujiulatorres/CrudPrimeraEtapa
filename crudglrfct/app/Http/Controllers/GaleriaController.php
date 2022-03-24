@@ -59,7 +59,9 @@ class GaleriaController extends Controller
      */
     public function show(Imagen $img)
     {
-        //
+        return Inertia::render('Show', [
+            'img' => $img
+        ]);
     }
 
     /**

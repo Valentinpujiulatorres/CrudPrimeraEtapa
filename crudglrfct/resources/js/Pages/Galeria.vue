@@ -35,12 +35,15 @@
                                         <img :src="'/storage/images/'+imagen.imagen" alt="image" />
                                     </td>
                                     <td class="px-4 py-2 font-extrabold">
+                                        <Link class="btn btn-info" :href="route('imgs.show', imagen.id)" as="button">
+                                            Ver
+                                        </Link>
                                         <Link class="btn btn-warning" :href="route('imgs.edit', imagen.id)" as="button">
-                                            Edit
+                                            Editar
                                         </Link>
                                         <!-- Asocia el botón de eliminar a su imagen correspondiente -->
                                         <Link @click="destroy(imagen.id)" class="btn btn-danger" as="button">
-                                            Delete
+                                            Eliminar
                                         </Link>
                                     </td>
                                 </tr>

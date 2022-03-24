@@ -29,6 +29,7 @@ Route::get('/dashboard', function () {
 
 Route::resource('imgs', GaleriaController::class)
         ->names('imgs')
-        ->parameters(['imgs' => 'img']);
+        ->parameters(['imgs' => 'img'])
+        ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

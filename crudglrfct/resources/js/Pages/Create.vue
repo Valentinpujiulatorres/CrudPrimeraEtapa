@@ -46,7 +46,7 @@
                             <!-- submit -->
                             <div class="flex items-center mt-4">
                                 <button class="px-6 py-2 text-white bg-gray-900 rounded">
-                                    Save
+                                    Crear
                                 </button>
                             </div>
                         </form>

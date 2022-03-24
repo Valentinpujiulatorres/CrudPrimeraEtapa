@@ -43,14 +43,13 @@
                             <!-- Como se suben las imágenes de una en una, basta con ese $event.target.files[0] -->
                             <div v-if="errors.imagen" class="text-danger">{{ errors.imagen }}</div>
                             <div v-if="form.imagen.length > 0" class="mt-4">
-                                
                                 <img :src="'/storage/images/'+form.imagen" alt="image" />
                             </div>
 
                             <!-- submit -->
                             <div class="flex items-center mt-4">
                                 <button class="px-6 py-2 text-white bg-gray-900 rounded">
-                                    Save
+                                    Guardar
                                 </button>
                             </div>
                         </form>
