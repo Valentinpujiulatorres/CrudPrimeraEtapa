@@ -2,7 +2,7 @@
 @section('title', 'Usuarios')
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 @endsection
 
 @section('content')
@@ -88,10 +88,12 @@
     @endsection
 
 @section('js')
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>    
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
+
     <script>
-        $('#usuarios').DataTable(
-            "lengtMenu": [[5,10,50, -1], [5,10,50, "All"]]
-        );
+$(document).ready(function() {
+    $('#usuarios').DataTable();
+} );
     </script>
 @endsection
