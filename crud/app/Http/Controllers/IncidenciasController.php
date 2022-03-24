@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-
 class IncidenciasController extends Controller
 {
     public function index(Request $request)
@@ -40,7 +39,7 @@ class IncidenciasController extends Controller
         // condicional para la subida de imagenes
         if($file = $request->file('imagen')){
             $path = public_path() . '/imagenes';
-            $fileName = $file->getClientOriginalName();
+            $fileName = time() . $file->getClientOriginalName();
             $file->move($path, $fileName);
             $incidencia['imagen'] = "$fileName";
         }
@@ -58,6 +57,7 @@ class IncidenciasController extends Controller
 
     public function edit($incidencias)
     {
+        Gate::authorize('comprobar_role');
         $incidencias = Incidencias::find($incidencias);
         return view('incidencias.edit', compact('incidencias'));
     }
@@ -70,6 +70,7 @@ class IncidenciasController extends Controller
             'error'=>'required',
             'tipoerror'=>'required',
             'descerror'=>'required',
+            'imagen'=>'required'
         ]);
 
         $incidencia->update($request->all());
@@ -81,7 +82,16 @@ class IncidenciasController extends Controller
 
     public function destroy(Incidencias $incidencia)
     {
-        $incidencia->delete();
+        Gate::authorize('comprobar_role');
+        $url = str_replace('storage', 'public', '../public/imagenes/' .$incidencia->imagen);
+        if ( isset($url) ) {
+            if ( true === $url ) {
+            unlink($url);
+            $incidencia->delete();
+            } else {
+                $incidencia->delete();
+        }
+    }
 
         return redirect()->route('incidencias.index')->with('success', 'Producto Borrado con exito');
     }

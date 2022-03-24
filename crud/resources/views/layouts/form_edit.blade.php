@@ -67,6 +67,11 @@
             <button type="reset" class="btn btn-warning p-2 pl-4 pr-4 m-1 mb-4 bg-warning">@lang('Borrar')</button>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+        });
+    </script>
 
 </fieldset>
 <br>

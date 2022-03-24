@@ -1,3 +1,5 @@
+
+
 <fieldset>
     <h1 class="text-center text-white pb-4 pt-5"><u>@lang('Crear Incidencia')</u></h1>
     <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id}}">    <div class="form-group m-3 ">
@@ -27,7 +29,7 @@
 
     <div class="form-group m-3">
         <label class="text-white">{{ __('Tipo de Error') }}: </label>
-        <select class="border-2 text-dark border-solid border-gray-100" name="tipoerror">
+        <select class="js-example-basic-single" text-dark border-solid border-gray-100" name="tipoerror">
             <option value="leve" @if (old('tipoerror', $incidencia->tipoerror) === 'leve') selected @endif>leve</option>
             <option value="grave" @if (old('tipoerror', $incidencia->tipoerror) === 'grave') selected @endif>grave</option>
         </select>
@@ -67,6 +69,15 @@
             <button type="reset" class="btn btn-warning p-2 pl-4 pr-4 m-1 mb-4 bg-warning">@lang('Borrar')</button>
         </div>
     </div>
+        
+    @push('scripts')
+
+    <script>
+        $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+        });
+    </script>
+    @endpush
 
 </fieldset>
 <br>

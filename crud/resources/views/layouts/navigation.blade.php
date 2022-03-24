@@ -69,6 +69,12 @@
                 <button type="submit" class="btn btn-success">Enviar</button>
         </div>
     </div>
+    
+    <script>
+        $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+        });
+    </script>
    
 </form>
 @endsection
