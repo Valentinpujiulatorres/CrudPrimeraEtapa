@@ -6,6 +6,7 @@ use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+
 class ProductoController extends Controller
 {
     /**
