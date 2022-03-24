@@ -60,17 +60,17 @@ class UsuarioController extends Controller
         return redirect('usuarios');
     }
     // fuincion que elimina un usuario utilizando autorizacion
-    public function destroy(Usuario $usuario)
-    {
-        $this->authorize('delete', $usuario);
-        $url = '../public/imagenes/' . $usuario->imagen;
-
-        if(hasFile($usuario->imagen)) {
-            unlink($url);
-            $usuario->delete();
-        } else {
-        $usuario->delete();
-    }
-        return redirect()->route('usuarios.index');
-    }
+        public function destroy(Usuario $usuario)
+        {
+            $this->authorize('delete', $usuario);
+            $url = str_replace('storage', 'public', '../public/imagenes/' .$usuario->imagen);
+            if (isset($url) && file_exists($url)){
+                unlink($url);
+                $usuario->delete();
+                } else {
+                    $usuario->delete();
+            }
+        
+            return redirect()->route('usuarios.index');
+        }
 }
