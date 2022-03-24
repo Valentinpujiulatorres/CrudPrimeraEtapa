@@ -30,9 +30,8 @@ class UsuarioRequest extends FormRequest
             'nombre' => 'required|max:50', 
             'apellido' => 'required|max:50',  
             'telefono' => 'required|size:9', 
-            'email' => 'required' ,
-            'imagen' => 'image|max:1024'
-        ];
+            'email' => 'required' 
+                ];
     }
     // mensages de validacion
     public function messages() 

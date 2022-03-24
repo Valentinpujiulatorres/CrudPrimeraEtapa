@@ -32,7 +32,7 @@ class UsuarioController extends Controller
         // condicional para la subida de imagenes
         if($file = $request->file('imagen')){
             $path = public_path() . '/imagenes';
-            $fileName = $file->getClientOriginalName();
+            $fileName = time() . $file->getClientOriginalName();
             $file->move($path, $fileName);
             $usuario['imagen'] = "$fileName";
         }
@@ -63,7 +63,14 @@ class UsuarioController extends Controller
     public function destroy(Usuario $usuario)
     {
         $this->authorize('delete', $usuario);
+        $url = '../public/imagenes/' . $usuario->imagen;
+
+        if(hasFile($usuario->imagen)) {
+            unlink($url);
+            $usuario->delete();
+        } else {
         $usuario->delete();
+    }
         return redirect()->route('usuarios.index');
     }
 }
