@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
@@ -142,6 +143,9 @@ class ProductoController extends Controller
     public function destroy(Producto $producto)
     {
         //Borrado de producto de la base de datos 
+        //Storage::disk('public/imagenes/')->delete($producto->image); 
+
+       
 
         $producto->delete();
 
