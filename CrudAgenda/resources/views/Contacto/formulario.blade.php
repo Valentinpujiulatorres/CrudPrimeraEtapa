@@ -2,6 +2,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div>
+    <h1> Empleados </h1>
     <form>
     <label for="id">Identificador</label>
     
@@ -20,7 +21,7 @@
     <label for="Imagen ">Eliga una imagen </label>
     <input type="file" name="Imagen" id="Imagen">
     <br>
-    <input type="submit" value="Guardar Contacto">
+    <input type="submit" value=" Guardar Contacto">
     <br>
     <a href="{{url('contacto/')}}">Retroceder 
 </form>

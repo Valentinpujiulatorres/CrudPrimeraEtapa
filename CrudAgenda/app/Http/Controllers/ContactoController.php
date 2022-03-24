@@ -58,7 +58,7 @@ class ContactoController extends Controller
          }
 
         Contacto::insert($contacto);
-        return redirect('contacto');
+        return redirect('contacto')->with('mensaje','El contacto ha sido creado correctamente ');
     }
 
     /**
@@ -69,7 +69,7 @@ class ContactoController extends Controller
      */
     public function show(Contacto $contacto)
     {
-        //
+        return view('Contacto.show',compact('contacto'));
     }
 
     /**
@@ -114,16 +114,20 @@ class ContactoController extends Controller
             'Apellidos' => $request->Apellidos,
             'Direccion' => $request->Direccion,
             'Edad'=>$request->Edad,
+            // 'Imagen'=>$request->Imagen,
 
 
 
         ]);
         $respuesta=$contacto->update($contactoActualizado);
 
+        
+
         if($request->hasFile('Imagen')){
             $contacto['Imagen']=$request->file('Imagen')->store('uploads','public');
         }
-         
+        
+    $contacto->update($contactoActualizado);
 
         
 
@@ -147,6 +151,6 @@ class ContactoController extends Controller
         */
 
     Storage::disk('public')->delete('');
-    return redirect('contacto');
+    return redirect('contacto')->with('mensaje','El contacto ha sido eliminado correctamente');
     }
 }

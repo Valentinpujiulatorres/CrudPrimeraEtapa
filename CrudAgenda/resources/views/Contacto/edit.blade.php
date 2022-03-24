@@ -1,6 +1,7 @@
 <form action="{{ route('contacto.update',$contacto->id) }}" enctype="multipart/form-data" method="POST">
 @csrf
 @method('PATCH')
+['modo'=>'editar ']
 <label for="NombreContacto">Nombre Contacto </label>
     <input type="text" name="NombreContacto" id="NombreContacto" placeholder="Escriba su nombre" value="{{isset($contacto->NombreContacto)?$contacto->NombreContacto:'' }}">
     <br>
