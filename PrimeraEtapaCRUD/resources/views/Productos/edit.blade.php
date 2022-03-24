@@ -67,6 +67,12 @@
                 </select>
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
+            <div class="form-group">
+                <strong>Imagen</strong>
+               <input   style="width: 45%;" type="file" class="form-control" name="imagen" >
+            </div>
+        </div>
         
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success">Enviar</button>

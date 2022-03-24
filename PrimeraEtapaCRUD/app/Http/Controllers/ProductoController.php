@@ -112,7 +112,21 @@ class ProductoController extends Controller
             'procedencia'=>'required'
         ]);
 
-        $producto->update($request->all());
+        //En este caso debemos asignar a una variable externa al producto la request ya que sino no deja modificar los campos de la request
+        //Y podemos encontrar que deberemos crear un recipiente local de metodo para poder modificar el campo en DB
+        $UpdatedRequest = $request->all();
+        
+
+        if($imagen = $request->file('imagen')){
+            $rutaGuardarImagen = 'imagenes/' ;
+            //Ademas de la ruta por convenio queremos llamar a las imagaenes de cierta manera = Fecha + nombre + tipo de Archivo
+            $imagenProducto = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImagen, $imagenProducto);
+
+            $UpdatedRequest['imagen'] = "$imagenProducto";
+        }
+
+        $producto->update($UpdatedRequest);
         
         //Asignamos una redireccion de el metodo a la paginacion de index *(Metodo de este controlador )
         return redirect()->route('productos.index')
