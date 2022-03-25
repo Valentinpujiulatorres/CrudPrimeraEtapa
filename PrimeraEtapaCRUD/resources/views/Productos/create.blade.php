@@ -60,14 +60,8 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Procedencia</strong><br>
-
-                <select class="form-control" aria-label="Default select example" name="procedencia" id="procedencia" >
-                <option selected="true" disabled="disabled">Seleccione Procedencia del Producto</option>
-                    <option value="Turquia Oriental">Turquia Oriental</option>
-                    <option value="Turquia Occidental">Turquia Occidental</option>
-                    <option value="Spain">Spain</option>
-                    <option value="China">China</option>
-                </select>
+                @livewire('select2')
+               
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
@@ -84,10 +78,10 @@
    
 </form>
 
-    <p>Este campo es la prueba del Select2 (Abajo)</p>
     
     
-    @livewire('select2')
+    
+    
 
 
 

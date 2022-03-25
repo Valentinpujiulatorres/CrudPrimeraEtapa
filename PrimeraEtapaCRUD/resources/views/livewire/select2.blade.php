@@ -6,10 +6,11 @@
     
     @endsection
     <div wire:ignore>
-    <select class="select2 form-control " id="select2Valentin">
-            <option value="Spain">Spain</option>
-            <option value="Mexico">Mexico</option>
-            <option value="China">China</option>
+    <select name="procedencia" class="select2 form-control " id="select2Valentin">
+        <option disabled selected value="Introduce un Origen">Introduce Un origen</option>
+            @foreach ($opciones as $p)
+                <option value="{{$p}}">{{$p}}</option>
+            @endforeach
     </select>
     </div>
     @section('Select2Js')
@@ -18,9 +19,11 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        document.addEventListener('Livewire:load', function(){
-            $('#select2Valentin').select2();
-        })
+      
+            $('#select2Valentin').select2({
+
+                
+            });
     </script>
     @endsection
 
