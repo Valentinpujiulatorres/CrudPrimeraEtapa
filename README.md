@@ -1,5 +1,15 @@
 # CrudPrimeraEtapa
 
+### .Env :
+
+- DB_CONNECTION=pgsql
+- DB_HOST=randion.es
+- DB_PORT=5432
+- DB_DATABASE=Crud_usuarios
+- DB_USERNAME=gnovel
+- DB_PASSWORD=abc123.
+
+
 ### Integrantes :
 
 - David Gonzalez
