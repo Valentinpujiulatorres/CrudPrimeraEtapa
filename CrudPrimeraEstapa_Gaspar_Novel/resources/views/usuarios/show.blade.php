@@ -15,6 +15,7 @@
                         <th scope="col">@lang('traduccion.Email')</th>
                         <th scope="col">@lang('traduccion.Studies')</th>
                         <th scope="col">@lang('traduccion.License')</th>
+                        <th scope="col">@lang('traduccion.Studies')</th>
                         <th scope="col">@lang('traduccion.Description')</th>
                         <th scope="col">Favicon</th>
                         <th scope="col">@lang('traduccion.Image')</th>
@@ -31,6 +32,7 @@
                             <td>{{ $usuario->email }}</td>
                             <td>{{ $usuario->estudios }}</td>
                             <td>{{ $usuario->carnet }}</td>
+                            <td>{{ $usuario->estudios }}</td>
                             <td>{{ $usuario->descripcion }}</td>
                             <td>{{ $usuario->favicon }}</td>
                             <td><img src="/imagenes/{{ $usuario->imagen}}"></td>

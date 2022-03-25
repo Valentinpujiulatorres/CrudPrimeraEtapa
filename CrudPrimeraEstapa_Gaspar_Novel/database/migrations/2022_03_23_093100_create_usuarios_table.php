@@ -33,6 +33,7 @@ class CreateUsuariosTable extends Migration
             $table->string('email', 40)->unique();
             // Valores seleccionables
             $table->string('carnet')->default('');
+            $table->enum('estudios', ['Daw', 'Dam', 'Asix'])->nullable();
             // Texto
             $table->text('descripcion')->nullable();
             // Valor booleano

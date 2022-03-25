@@ -24,6 +24,7 @@ class UsuarioSeeder extends Seeder
                 'telefono' => '639156816',
                 'email' => 'cnovel@cifpfbmoll.eu',
                 'carnet' => 'B',
+                'estudios' => 'Daw',
                 'imagen' => 'wp5977227.jpg'
             ],
             [
@@ -35,6 +36,7 @@ class UsuarioSeeder extends Seeder
                 'telefono' => '656192413',
                 'email' => 'pruiz@cifpfbmoll.eu',
                 'carnet' => 'B',
+                'estudios' => 'Asix',
                 'imagen' => 'wp5977227.jpg'            
             ],
             [
@@ -46,6 +48,7 @@ class UsuarioSeeder extends Seeder
                 'telefono' => '656192455',
                 'email' => 'rmartinez@cifpfbmoll.eu',
                 'carnet' => '',
+                'estudios' => 'Dam',
                 'imagen' => 'wp5977227.jpg'
             ],
         ];

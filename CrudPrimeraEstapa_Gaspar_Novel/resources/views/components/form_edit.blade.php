@@ -104,6 +104,26 @@
     </div>
 
     <div class="row d-flex justify-content-center align-items-center">
+        <div class="form-group col-7 col-xl-8  m-3">
+            <label class="text-white">{{ __('traduccion.Studies') }}: </label>
+            <select  class="form-control select2" aria-label="Default" name="estudios" id="estudios" >
+                <option value="" {{ old('estudios', $usuario->estudios) == '' ? 'selected' : '' }}>
+                    
+                </option>
+                <option value="Daw" {{ old('estudios', $usuario->estudios) == 'Daw' ? 'selected' : '' }}>
+                    Daw
+                </option>
+                <option value="Dam" {{ old('estudios', $usuario->estudios) == 'Dam' ? 'selected' : '' }}>
+                    Dam
+                </option>
+                <option value="Asix" {{ old('estudios', $usuario->estudios) == 'Asix' ? 'selected' : '' }}>
+                    Asix
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center align-items-center">
         <div class="form-group col-7 col-xl-4 m-3">
             <label class="text-white">@lang('traduccion.Description'): </label>
             <textarea class="border-2 text-dark border-solid border-gray-100"
