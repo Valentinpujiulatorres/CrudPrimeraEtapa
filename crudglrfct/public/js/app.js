@@ -26344,7 +26344,7 @@ var _hoisted_12 = {
   "class": "font-bold"
 };
 var _hoisted_13 = {
-  "class": "px-4 py-2 col-1"
+  "class": "py-2 col-1"
 };
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("ID ");
@@ -26356,7 +26356,7 @@ var _hoisted_16 = {
   key: 1
 };
 var _hoisted_17 = {
-  "class": "px-4 py-2 col-3"
+  "class": "py-2 col-3"
 };
 
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Título ");
@@ -26370,7 +26370,7 @@ var _hoisted_20 = {
 
 var _hoisted_21 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-    "class": "px-4 py-2 col-5"
+    "class": "py-2 col-5"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "inline-flex w-full justify-between"
   }, "Imagen")], -1
@@ -26380,7 +26380,7 @@ var _hoisted_21 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-    "class": "px-4 py-2 col-3"
+    "class": "py-2 col-3"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "inline-flex w-full justify-between"
   }, "Acciones")], -1
@@ -26389,17 +26389,17 @@ var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_23 = {
-  "class": "px-4 py-2"
+  "class": "py-2"
 };
 var _hoisted_24 = {
-  "class": "px-4 py-2"
+  "class": "py-2"
 };
 var _hoisted_25 = {
-  "class": "px-4 py-2"
+  "class": "py-2"
 };
 var _hoisted_26 = ["src"];
 var _hoisted_27 = {
-  "class": "px-4 py-2 font-extrabold"
+  "class": "py-2 font-extrabold"
 };
 
 var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Ver ");

@@ -26,35 +26,35 @@
                         <table id="galeriaimg" class="table table-striped table-hover table-bordered my-3 align-middle">
                             <thead class="font-bold">
 
-                                <th class="px-4 py-2 col-1">
+                                <th class="py-2 col-1">
                                     <span class="inline-flex w-full justify-between sortable" @click="sort('id')">ID
                                         <span v-if="params.field === 'id' && params.direction === 'asc'">&#8593;</span>
                                         <span v-if="params.field === 'id' && params.direction === 'desc'">&#8595;</span>
                                     </span>
                                 </th>
 
-                                <th class="px-4 py-2 col-3">
+                                <th class="py-2 col-3">
                                     <span class="inline-flex w-full justify-between sortable" @click="sort('titulo')">Título
                                         <span v-if="params.field === 'titulo' && params.direction === 'asc'">&#8593;</span>
                                         <span v-if="params.field === 'titulo' && params.direction === 'desc'">&#8595;</span>
                                     </span>
                                 </th>
 
-                                <th class="px-4 py-2 col-5"><span class="inline-flex w-full justify-between">Imagen</span></th>
-                                <th class="px-4 py-2 col-3"><span class="inline-flex w-full justify-between">Acciones</span></th>
+                                <th class="py-2 col-5"><span class="inline-flex w-full justify-between">Imagen</span></th>
+                                <th class="py-2 col-3"><span class="inline-flex w-full justify-between">Acciones</span></th>
                             </thead>
                             <tbody>
                                 <!-- Recupero las imágenes de la BBDD y recorro con v-for, mostrando columna por columna -->
                                 <tr v-for="imagen in imgs.data" :key="imagen.id">
 
-                                    <td class="px-4 py-2">{{ imagen.id }}</td>
-                                    <td class="px-4 py-2">{{ imagen.titulo }}</td>
-                                    <td class="px-4 py-2">
+                                    <td class="py-2">{{ imagen.id }}</td>
+                                    <td class="py-2">{{ imagen.titulo }}</td>
+                                    <td class="py-2">
                                         <!-- Así puedo recoger la ruta donde tengo todas mis imágenes almacenadas -->
                                         <img :src="'/storage/images/'+imagen.imagen" alt="image" />
                                     </td>
 
-                                    <td class="px-4 py-2 font-extrabold">
+                                    <td class="py-2 font-extrabold">
                                         <Link class="btn btn-info" :href="route('imgs.show', imagen.id)" as="button">
                                             Ver
                                         </Link>
