@@ -1,8 +1,13 @@
-{{-- <table class="table table-dark">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<h1 class="text-center p-2" style="color:blue">Contacto Actual</h1>
+
+<table class="table p-2" style="background-color: rgba(0, 0, 0, 0.274)">
     <thead class="thead-dark">
         <tr>
             <!--Cabecera de la tabla-->
-            <a  class="float-end btn btn-dark" href="{{url('contacto/')}}">Retroceder </a>  
+            <a  class="float-end btn btn-dark m-3" href="{{url('contacto/')}}">Retroceder </a>  
             <th style="color:yellowgreen">ID</th>
             <th style="color: yellowgreen">Imagen</th>
             <th style="color: yellowgreen">Nombre Contacto </th>
@@ -22,5 +27,4 @@
         @endif
     </thead>
     <tbody>
- --}}
  
