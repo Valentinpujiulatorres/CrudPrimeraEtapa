@@ -1,6 +1,7 @@
 @extends('incidencias.layout')
   
 @section('content')
+    <!-- Muestra las incidencias con sus campos !-->
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -44,4 +45,7 @@
             </div>
         </div>
     </div>
+         
+
 @endsection
+

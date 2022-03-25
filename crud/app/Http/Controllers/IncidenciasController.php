@@ -27,7 +27,7 @@ class IncidenciasController extends Controller
 
     public function store(IncidenciasRequest $request)
     {
-        
+        // Guardado de los datos de la incidencia
         $request->validate([
             'fecherror'=>'required',
             'error'=>'required',
@@ -37,7 +37,7 @@ class IncidenciasController extends Controller
         ]);
 
         $incidencia = $request->all();
-        // condicional para la subida de imagenes
+        // Condicional para la subida de imagenes de la incidencia
         if($file = $request->file('imagen')){
             $path = public_path() . '/imagenes';
             $fileName = time() . $file->getClientOriginalName();
@@ -46,7 +46,8 @@ class IncidenciasController extends Controller
         }
 
         Incidencias::create($incidencia);
-
+        
+        // Redirección al index al crear
         return redirect()->route('incidencias.index');
     }
 
@@ -64,7 +65,7 @@ class IncidenciasController extends Controller
 
     public function update(Request $request, Incidencias $incidencia)
     {{
-         //Funcion de update de productos , metodo PUT *(Para mas info mirar edit.blade.php)
+         //Funcion de update de productos, actualiza los campos exceptuando la imagen
         $request->validate([
             'fecherror'=>'required',
             'error'=>'required',
@@ -74,6 +75,7 @@ class IncidenciasController extends Controller
         ]);
         $incidencia->update($request->all());
         }
+        // Condicional para actualizar la imagen de la incidencia
         if($file = $request->file('imagen')){
             $path = public_path() . '/imagenes';
             $fileName = time() . $file->getClientOriginalName();
@@ -83,13 +85,15 @@ class IncidenciasController extends Controller
         }
         $incidencia->update();
 
-        //Asignamos una redireccion de el metodo a la paginacion de index *(Metodo de este controlador )
+        // Redirección al index al actualizar
         return redirect()->route('incidencias.index');
     }
 
     public function destroy(Incidencias $incidencia)
     {
         Gate::authorize('comprobar_role');
+        
+        // If else para destruir la incidencia y eliminar la imagen del local tanto si tenemos esa imagen en local como si no
         $url = str_replace('storage', 'public', '../public/imagenes/' .$incidencia->imagen);
         if (isset($url) && file_exists($url)){
             unlink($url);
@@ -97,7 +101,8 @@ class IncidenciasController extends Controller
             } else {
                 $incidencia->delete();
         }
-    
+        
+        // Redirección al index al destruir
         return redirect()->route('incidencias.index');
     }
 }

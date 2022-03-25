@@ -11,11 +11,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="well well-sm">
+                    <!-- Comprueba si hay errores !-->
                     @if ($errors->any())
                         @foreach ($errors->all() as $error)
                             <li class="text-danger text-center pt-4">{{ $error }}</li>
                         @endforeach
                     @endif
+                    <!-- Edita la incidencia !-->
                     <form class="form-horizontal" action="{{ url('incidencias/'.$incidencias->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')

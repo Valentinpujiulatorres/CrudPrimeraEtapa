@@ -10,7 +10,6 @@ class Incidencias extends Model
 {
     use HasFactory;
     use softDeletes;
-
     protected $table = 'incidencias';
     protected $fillable = [
         'fecherror',

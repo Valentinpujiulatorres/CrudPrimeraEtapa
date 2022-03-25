@@ -1,6 +1,7 @@
 @extends('incidencias.layout')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
 
 <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -18,8 +19,8 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
-    <table class="table table-stripped">
+    <!-- Tabla donde se mostrarán las incidencias !-->
+    <table id="incidencias" class="table table-stripped">
         <tr>
             <th>ID</th>
             <th>Error</th>
@@ -35,6 +36,7 @@
             <td>{{ $incidencia->tipoerror }}</td>
             <td>{{ $incidencia->descerror }}</td>
             <td><img style="width: 200px;" src="/imagenes/{{ $incidencia->imagen}}"></td>
+            <!-- Acciones sobre las incidencias !-->
             <td>
                 <form action="{{ route('incidencias.destroy',$incidencia->id) }}" method="POST">
 
@@ -54,4 +56,14 @@
 
 
 @endsection
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+$(document).ready( function () {
+    $('#incidencias').DataTable(
+    );
+} );
+</script>
+</script>
 

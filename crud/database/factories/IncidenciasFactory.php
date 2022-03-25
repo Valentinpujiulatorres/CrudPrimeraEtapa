@@ -13,6 +13,8 @@ class IncidenciasFactory extends Factory
      *
      * @return array
      */
+    
+   // Creacion de incidencias de prueba para la base de datos 
     public function definition()
     {
         return [

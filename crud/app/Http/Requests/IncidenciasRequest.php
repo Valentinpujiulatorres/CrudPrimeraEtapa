@@ -14,6 +14,7 @@ class IncidenciasRequest extends FormRequest
      */
     public function authorize()
     {
+        // Comprueba el rol para permitir ciertas acciones: editar, crear y borrar
         return Gate::allows('comprobar_role');
     }
 

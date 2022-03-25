@@ -15,8 +15,10 @@ use App\Http\Controllers\IncidenciasController;
 */
 
 Route::get('/', function () {
-    return view('home')->name('home');
+    return view('welcome');
 });
+
+// Ruta del Controlador de Incidencias
 
 Route::resource('/incidencias', IncidenciasController::class)->middleware(['auth']);
 

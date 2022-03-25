@@ -1,6 +1,8 @@
 <fieldset>
     <h1 class="text-center text-white pb-4 pt-5"><u>@lang('Editar incidencia')</u></h1>
     <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id}}">    <div class="form-group m-3 ">
+        
+    <!-- Formulario para editar las incidencias -->
     <div class="form-group m-3 ">
         <label class="text-white">
             {{ __('fecherror') }}: <input class="border-2 text-dark border-solid border-gray-100" type="date"
@@ -16,7 +18,7 @@
     <div class="form-group m-3">
         <label class="text-white">
             {{ __('Error') }}: <input class="border-2 text-dark border-solid border-gray-100" type="text"
-                name="error" value="{{ old('error', $incidencias->error) }}" required />
+                name="error" style="width: 150%" value="{{ old('error', $incidencias->error) }}" required />
             @error('error')
                 <br>
                 <small class="text-danger">*{{ $message }}</small>
@@ -27,7 +29,7 @@
 
     <div class="form-group m-3">
         <label class="text-white">{{ __('Tipo de Error') }}: </label>
-        <select class="border-2 text-dark border-solid border-gray-100" name="tipoerror">
+        <select class="border-2 text-dark border-solid border-gray-100" style="width: 20%" name="tipoerror">
             <option value="leve" @if (old('tipoerror', $incidencias->tipoerror) === 'leve') selected @endif>leve</option>
             <option value="grave" @if (old('tipoerror', $incidencias->tipoerror) === 'grave') selected @endif>grave</option>
         </select>
@@ -40,7 +42,7 @@
 
     <div class="form-group m-3">
         <label class="text-white">@lang('Descripcion del error'): </label>
-        <textarea class="border-2 text-dark border-solid border-gray-100"
+        <textarea class="border-2 text-dark border-solid border-gray-100" style="width: 200%"
             name="descerror">{{ old('descerror', $incidencias->descerror) }}</textarea>
         @error('descerror')
             <br>
@@ -52,7 +54,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
         <div class="form-group">
             <strong>Imagen</strong>
-            <input   style="width: 200px;" type="file" class="form-control" name="imagen" >
+            <input   style="width: 350px;" type="file" class="form-control" name="imagen" >
         </div>
     </div>    
     @error('imagen')
