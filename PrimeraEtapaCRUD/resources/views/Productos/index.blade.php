@@ -93,11 +93,12 @@
         Swal.fire({
         title: 'ATENCION',
         text: "Una vez borrado el registro no se podra recuperar",
-        icon: 'danger',
+        icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#198754',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Borrar'
+        confirmButtonText: 'Borrar',
+        cancelButtonText: 'Cancelar'
     }).then((result) => {
     if (result.value) {
         //Debemos asegurarnos que pasamos el valor BOOLEANO y no el texto de confirmacion de la propia alerta 
