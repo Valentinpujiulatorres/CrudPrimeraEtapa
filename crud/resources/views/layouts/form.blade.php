@@ -1,4 +1,14 @@
 <fieldset enctype="multipart/form-data">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+ @section('js')
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script>$(document).ready(function() {
+            $('.incidencias').select2();
+            });
+        </script>
+@endsection
+    </head>
     <h1 class="text-center text-white pb-4 pt-5"><u>@lang('Crear Incidencia')</u></h1>
     <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id}}">    <div class="form-group m-3 ">
         
@@ -30,7 +40,7 @@
 
     <div class="form-group m-3">
         <label class="text-white">{{ __('Tipo de Error') }}: </label>
-        <select class="js-example-basic-single" style="width: 20%" text-dark border-solid border-gray-100" name="tipoerror">
+        <select class="incidencias" style="width: 30%" text-dark border-solid border-gray-100" name="tipoerror">
             <option value="leve" @if (old('tipoerror', $incidencia->tipoerror) === 'leve') selected @endif>leve</option>
             <option value="grave" @if (old('tipoerror', $incidencia->tipoerror) === 'grave') selected @endif>grave</option>
         </select>

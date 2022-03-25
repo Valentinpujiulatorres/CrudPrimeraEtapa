@@ -1,7 +1,13 @@
 @extends('incidencias.layout')
 
+@section('css')
+
+<link rel="stylesheet" type="text/css" href="cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+
+@endsection
+
 @section('content')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+
 
 <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -20,16 +26,19 @@
         </div>
     @endif
     <!-- Tabla donde se mostrarán las incidencias !-->
-    <table id="incidencias" class="table table-stripped">
+    <table id="incidencias" class="display" style="width:100%">
+        <thead>
         <tr>
             <th>ID</th>
             <th>Error</th>
             <th>Tipo de error</th>
             <th>Descripcion del error</th>
             <th>Imagen</th>
-            <th width="280px">Acciones</th>
+            <th width="300px">Acciones</th>
         </tr>
+        </thead>
         @foreach ($incidencias as $incidencia)
+        <tbody>
         <tr>
             <td>{{ $incidencia->id }}</td>
             <td>{{ $incidencia->error }}</td>
@@ -51,19 +60,22 @@
                 </form>
             </td>
         </tr>
+        </body>
         @endforeach
     </table>
+    
+@section('js')
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
+
+    <script>
+        $(document).ready(function() {
+        $('#incidencias').DataTable();
+        } );
+    </script>
+@endsection
 
 
 @endsection
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script>
-$(document).ready( function () {
-    $('#incidencias').DataTable(
-    );
-} );
-</script>
-</script>
 

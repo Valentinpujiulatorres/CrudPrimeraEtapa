@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('incidencias.layout')
 @section('title', 'Home')
 @section('content')
 <div class="min-h-screen bg-gray-100"> 
@@ -17,9 +17,4 @@
     </div>
 </div>
 </div>
-@endsection<?php
-
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+@endsection
