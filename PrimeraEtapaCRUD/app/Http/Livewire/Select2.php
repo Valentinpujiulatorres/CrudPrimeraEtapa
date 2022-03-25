@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Producto;
+use App\Http\Controllers\ProductoController;
 
 
 class Select2 extends Component

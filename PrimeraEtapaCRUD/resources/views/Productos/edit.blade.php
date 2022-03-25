@@ -56,7 +56,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Procedencia</strong><br>
+                <strong>Procedencia</strong><b>  Valor Previo: <b style="font-size: larger; color:brown">{{$producto->procedencia}}</b> </b><br>
 
                 @livewire('select2')
             </div>
