@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Imagen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -12,13 +13,33 @@ class GaleriaController extends Controller
 {
     /**
      * Esta es la página principal de la galería. He implementado Vue con Inertia.js para la parte de front.
+     * Desde aquí también se hace posible la funcionalidad del datatable para 
      * También se pagina y muestra 5 resultados por página.
      */
     public function index()
     {
-        $imgs = Imagen::latest()->paginate(5);
+        request()->validate([
+            'direction' => ['in:asc,desc'],
+            'field' => ['in:id,titulo']
+        ]);
 
-        return Inertia::render('Galeria', ['imgs' => $imgs]);
+        $query = Imagen::query();
+
+        if (request('search')) {
+            // Hago que la query sea case-insensitive y esta solución debería servir tanto para MySQL como PSQL
+            $query->where(DB::raw('lower(titulo)'), 'LIKE', '%'.strtolower(request('search')).'%');
+        }
+
+        if (request()->has(['field', 'direction'])) {
+            $query->orderBy(request('field'), request('direction'));
+        }
+
+        return Inertia::render('Galeria', [
+            // Envía estos parámetros hacia el lado del cliente, a Galeria.vue
+            'imgs' => $query->latest()->paginate(5)->withQueryString(), 
+            // Según el IDE y tu intelliphense, se puede marcar withQueryString como error (pero funciona correctamente).
+            'filters' => request()->all(['search', 'field', 'direction']),
+        ]);
     }
 
     /**
@@ -93,12 +114,12 @@ class GaleriaController extends Controller
                 'titulo' => 'required|max:30|min:2',
                 'descripcion' => 'required|min:5',
             ]);
-            Storage::delete('public/images/'. $img->imagen);
 
             $img->update($request->except('_method'));
         }
 
         if($request->file('imagen')) {
+            Storage::delete('public/images/'. $img->imagen); // Elimina la imagen antigua en caso de que se vaya a subir una nueva
             $rutaGuardarImagen = 'storage/images';
             $request->validate([
                 'imagen' => 'mimes:jpg,png|max:500',

@@ -21,7 +21,9 @@
                         <div v-if="img" class="card col-12 col-sm-9 col-md-6 col-lg-4">
                             <img :src="'/storage/images/'+img.imagen" class="card-img-top" alt="image" />
                             <div class="card-body">
-                                <h5 class="card-title"># {{ img.id }} Título: {{ img.titulo }}</h5>
+                                <h5 class="card-title">
+                                    <span class="rounded-3 bg-custom p-1"># {{ img.id }}</span> {{ img.titulo }}
+                                </h5>
                                 <p class="card-text">Descripción: {{ img.descripcion }}</p>
                                 <Link class="btn btn-warning" :href="route('imgs.edit', img.id)" as="button">
                                     Editar
@@ -39,7 +41,9 @@
     </BreezeAuthenticatedLayout>
 </template>
 <style scoped>
-    
+    .bg-custom {
+        background-color: darkgray;
+    }
 </style>
 <script>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
