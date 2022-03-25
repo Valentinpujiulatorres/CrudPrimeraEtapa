@@ -36,6 +36,13 @@
   * Espero poder aprender conocimientos basados en la experiencia real.
 
 ---
+###     Cracterísticas y estructura personal de desarrollador en orden númerico.
+        1. Frontend
+        2. Backend
+        3. Delegado
+        4. Base de datos
+        5. Tester
+
 
 ### Tecnologias Nuevas:
 
