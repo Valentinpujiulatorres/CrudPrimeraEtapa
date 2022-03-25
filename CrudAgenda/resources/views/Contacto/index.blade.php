@@ -9,9 +9,10 @@
 
 <div>
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
-     <link rel="stylesheet" href=" https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-     <!--Librerias para datatables tanto enlaces de estilos como js para hacer dinámica  --->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
+        <link rel="stylesheet" href=" https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+        <!--Librerias para datatables tanto enlaces de estilos como js para hacer dinámica  --->
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
 $(document).ready(function() {
