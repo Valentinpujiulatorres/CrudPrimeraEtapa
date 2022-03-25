@@ -51,7 +51,7 @@ class ProductoController extends Controller
             'stock'=>'required',
             'precio'=>'required',
             'procedencia'=>'required',
-            'imagen'=>'required'
+            'imagen'=>'required | image'
         ]);
 
         $producto = $request->all();
