@@ -18,6 +18,7 @@ class UsuarioFactory extends Factory
 
     public function definition()
     {
+        // factory que devuelve usuarios usando faker y añadiendo manualmente una imagen
         return [
             'nombre' => $this->faker->name,
             'apellido' => $this->faker->name,

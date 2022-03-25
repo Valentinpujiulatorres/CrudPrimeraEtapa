@@ -14,7 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // usamos el modelo para crear gracias al factory en este caso 10 usuarios
         Usuario::factory(10)->create();
+        // llamamos a los seeders que añaden usuario creados manualmente
         $this->call([UserSeeder::class, UsuarioSeeder::class ]);
     }
 }

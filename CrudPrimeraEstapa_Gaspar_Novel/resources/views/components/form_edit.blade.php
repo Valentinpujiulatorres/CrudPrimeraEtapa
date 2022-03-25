@@ -1,4 +1,3 @@
-
 <fieldset>
     <h1 class="text-center text-white pb-4 pt-5"><u>@lang('traduccion.Edit User')</u></h1>
     <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id }}">

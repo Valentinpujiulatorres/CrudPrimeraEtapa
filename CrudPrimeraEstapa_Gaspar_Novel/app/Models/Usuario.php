@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Usuario extends Model
 {
+    // usamos softdelete
     use HasFactory, SoftDeletes;
 
     // protege los campos para permitir actualizacion

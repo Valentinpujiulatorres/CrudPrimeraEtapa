@@ -55,24 +55,32 @@ class UsuarioController extends Controller
     // fuincion que actualiza un usuario utilizando autorizacion
     public function update(UsuarioRequest $request, Usuario $usuario)
     {{
+        // comprobamos si el usuario esta autorizado
         $this->authorize('update', $usuario);
+        // actualizamos el usuario con lo que nos viene por request
         $usuario->update( $request->all());
     }
+    // añadimos la imagen al camnpo imagen del usuario 
         if($file = $request->file('imagen')){
             $path = public_path() . '/imagenes';
             $fileName = time() . $file->getClientOriginalName();
             $file->move($path, $fileName);
             $usuario['imagen'] = "$fileName";
         }
+        // actualizamos el usuario con la imagen añadida
         $usuario->update();
         return redirect('usuarios');
     }
     // fuincion que elimina un usuario utilizando autorizacion
         public function destroy(Usuario $usuario)
         {
+            // comprobamos si el usuario esta autorizado
             $this->authorize('delete', $usuario);
+            // cogemos la ruta de la imagen
             $url = str_replace('storage', 'public', '../public/imagenes/' .$usuario->imagen);
+            // condicional si no esta vacio y si existe en la ruta
             if (isset($url) && file_exists($url)){
+                // borramos la ruta y el registro
                 unlink($url);
                 $usuario->delete();
                 } else {

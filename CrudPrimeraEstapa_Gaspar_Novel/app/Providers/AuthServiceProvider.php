@@ -27,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        // definimos la gate para comprobar el rol del user
         Gate::define('comprobar_role', function ($user) {
             if ($user->role === 'admin')
             {

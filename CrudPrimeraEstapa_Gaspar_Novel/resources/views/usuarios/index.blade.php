@@ -1,6 +1,7 @@
 @extends('components.head')
 @section('title', 'Usuarios')
 
+{{-- especificamos el css para el datatable --}}
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/datatable.css') }}">
 @endsection
@@ -62,6 +63,7 @@
                                                 href="{{ route('usuarios.show',$usuario->id) }}">@lang('traduccion.Detail')</a></button>
                                 </th>
                                 <th>
+                                    {{-- usamos los atributos para mostrar segun el nivel de autentificacion el boton --}}
                                     @auth
                                         @can('update', \App\Models\Usuario::class)
                                             <button class="btn btn-warning"><a class="text-white"
@@ -70,6 +72,7 @@
                                     @endauth
                                 </th>
                                 <th>
+                                {{-- usamos los atributos para mostrar segun el nivel de autentificacion el boton --}}
                                     @auth
                                         @can('delete', \App\Models\Usuario::class)
                                             <form method="post" action="{{ route('usuarios.destroy', $usuario) }}">
@@ -86,7 +89,7 @@
             </div>
         </div>
     @endsection
-
+{{-- especificamos el js para el datatable --}}
 @section('js')
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    

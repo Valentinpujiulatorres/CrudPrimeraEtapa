@@ -13,7 +13,7 @@ class UsuarioSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
+    {   // creamos usuarios
         $usuarios = [
             [
                 'user_id' => '1',

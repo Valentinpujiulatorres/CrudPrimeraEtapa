@@ -15,6 +15,7 @@ class UsuarioRequest extends FormRequest
     // gate que comprueba el rol del usuario
     public function authorize()
     {
+        // funcion que devuelve una gate que comperuabe el rol
         return Gate::allows('comprobar_role');
     }
 

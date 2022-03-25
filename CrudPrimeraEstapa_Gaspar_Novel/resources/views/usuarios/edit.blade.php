@@ -11,6 +11,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="well well-sm">
+                    {{-- muestra los errores encima del formulario --}}
                     @if ($errors->any())
                         @foreach ($errors->all() as $error)
                             <li class="text-danger text-center pt-4">{{ $error }}</li>
