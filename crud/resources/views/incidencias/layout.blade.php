@@ -14,6 +14,7 @@
     <div style="margin-top: 3%;" class="container">
 
                 @yield('content')
+                @yield('js')
     </div>
 
 </body>

@@ -6,7 +6,6 @@
 
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
-
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
 
@@ -15,6 +14,7 @@ $(document).ready(function() {
     $('#incidencias').DataTable();
 } );
     </script>
+    
 
 
 
@@ -56,7 +56,7 @@ $(document).ready(function() {
             <td><img style="width: 200px;" src="/imagenes/{{ $incidencia->imagen}}"></td>
             <!-- Acciones sobre las incidencias !-->
             <td>
-                <form action="{{ route('incidencias.destroy',$incidencia->id) }}" method="POST">
+                <form action="{{ route('incidencias.destroy',$incidencia->id) }}" class="formulario-borrar" method="POST">
 
                     <a class="btn btn-success" href="{{ route('incidencias.show',$incidencia->id) }}">Detalle</a>
 
@@ -72,10 +72,43 @@ $(document).ready(function() {
         </body>
         @endforeach
     </table>
+@section('js')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
     
-
-
-
+    @if (session('eliminar') == 'ok')
+    <script>
+        Swal.fire(
+                    'Borrado',
+                    'La incidencia se ha borrado',
+                    'success'
+    </script>   
+    @endif
+    
+    <script>
+        
+        $('.formulario-borrar').submit(function(e){
+       e.preventDefault(); 
+        Swal.fire({
+        title: 'Borrar Incidencia',
+        text: "Si le das a confirmar borrarás la incidencia, estas seguro?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#00FFD3',
+        cancelButtonColor: '#BF0000',
+        confirmButtonText: 'Si, borra',
+        cancelButtonText: 'No, no la borres'
+    }).then((result) => {
+    if (result.value) {
+        //Debemos asegurarnos que pasamos el valor BOOLEANO y no el texto de confirmacion de la propia alerta 
+      this.submit();
+    }})});
+            
+    </script>
 @endsection
+    
+@endsection
+
+
 
 
