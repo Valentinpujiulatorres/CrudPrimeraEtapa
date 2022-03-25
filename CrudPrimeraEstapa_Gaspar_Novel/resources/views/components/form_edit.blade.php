@@ -104,7 +104,7 @@
     </div>
 
     <div class="row d-flex justify-content-center align-items-center">
-        <div class="form-group col-7 col-xl-8  m-3">
+        <div class="form-group col-7 col-xl-4  m-3">
             <label class="text-white">{{ __('traduccion.Studies') }}: </label>
             <select  class="form-control select2" aria-label="Default" name="estudios" id="estudios" >
                 <option value="" {{ old('estudios', $usuario->estudios) == '' ? 'selected' : '' }}>
