@@ -1,4 +1,4 @@
-<table class="table table-dark">
+{{-- <table class="table table-dark">
     <thead class="thead-dark">
         <tr>
             <!--Cabecera de la tabla-->
@@ -22,4 +22,5 @@
         @endif
     </thead>
     <tbody>
-
+ --}}
+ 
