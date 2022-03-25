@@ -2,7 +2,7 @@
 @section('title', 'Usuarios')
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="{{ asset('css/datatable.css') }}">
 @endsection
 
 @section('content')
@@ -14,21 +14,21 @@
         <div class="bg-dark p-5">
             <h1 class="text-center text-white pb-4"><u>@lang('traduccion.Users')</u></h1>
             <div class="container d-flex justify-content-center align-items-center">
-                <table id="usuarios" class="table">
+                <table id="usuarios" class="table border border-white">
                     <thead class="thead-dark">
                         <tr class="text-center">
-                            <th scope="col">Id</th>
-                            <th scope="col">@lang('traduccion.Name')</th>
-                            <th scope="col">@lang('traduccion.Last name')</th>
-                            <th scope="col">@lang('traduccion.Age')</th>
-                            <th scope="col">@lang('traduccion.Date of birth')</th>
-                            <th scope="col">@lang('traduccion.Phone')</th>
-                            <th scope="col">@lang('traduccion.Email')</th>
-                            <th scope="col">@lang('traduccion.License')</th>
-                            <th scope="col">@lang('traduccion.Description')</th>
-                            <th scope="col">Favicon</th>
-                            <th scope="col">@lang('traduccion.Image')</th>
-                            <th>
+                            <th class="align-middle" scope="col">Id</th>
+                            <th class="align-middle" scope="col">@lang('traduccion.Name')</th>
+                            <th class="align-middle" scope="col">@lang('traduccion.Last name')</th>
+                            <th class="align-middle"scope="col">@lang('traduccion.Age')</th>
+                            <th class="align-middle" scope="col">@lang('traduccion.Date of birth')</th>
+                            <th class="align-middle" scope="col">@lang('traduccion.Phone')</th>
+                            <th class="align-middle" scope="col">@lang('traduccion.Email')</th>
+                            <th class="align-middle" scope="col">@lang('traduccion.License')</th>
+                            <th class="align-middle" scope="col">@lang('traduccion.Description')</th>
+                            <th class="align-middle" scope="col">Favicon</th>
+                            <th class="align-middle" scope="col">@lang('traduccion.Image')</th>
+                            <th data-orderable="false">
                                 @auth
                                     @can('create', \App\Models\Usuario::class)
                                         <button class="btn btn-primary"><a class="text-white"
@@ -36,9 +36,9 @@
                                     @endcan
                                 @endauth
                             </th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th data-orderable="false"></th>
+                            <th data-orderable="false"></th>
+                            <th data-orderable="false"></th>
 
                         </tr>
                     </thead>
