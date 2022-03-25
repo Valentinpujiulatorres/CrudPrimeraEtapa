@@ -13,16 +13,16 @@ class IncidenciasController extends Controller
 {
     public function index(Request $request)
     {
-        $incidencias = Incidencias::latest()->paginate(7);
-
-        return view('incidencias.index',compact('incidencias'))
-        ->with('i',(request()->input('page',1)-1)*7);
+        $incidencias = Incidencias::all();
+        return view('incidencias.index', compact('incidencias'));
     }
 
     public function create(Incidencias $incidencia)
     {
         Gate::authorize('comprobar_role');
         return view('incidencias.create', compact('incidencia'));
+        
+        
     }
 
     public function store(IncidenciasRequest $request)

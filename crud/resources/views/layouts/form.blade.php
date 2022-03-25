@@ -1,14 +1,5 @@
 <fieldset enctype="multipart/form-data">
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
- @section('js')
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <script>$(document).ready(function() {
-            $('.incidencias').select2();
-            });
-        </script>
-@endsection
-    </head>
+
     <h1 class="text-center text-white pb-4 pt-5"><u>@lang('Crear Incidencia')</u></h1>
     <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id}}">    <div class="form-group m-3 ">
         

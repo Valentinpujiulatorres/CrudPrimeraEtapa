@@ -1,15 +1,24 @@
 @extends('incidencias.layout')
 
-@section('css')
 
-<link rel="stylesheet" type="text/css" href="cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
-
-@endsection
 
 @section('content')
 
 
-<div class="row">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
+
+    <script>
+$(document).ready(function() {
+    $('#incidencias').DataTable();
+} );
+    </script>
+
+
+
+    <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h4 style="color: black;">Listado de Incidencias</h4>
@@ -26,7 +35,7 @@
         </div>
     @endif
     <!-- Tabla donde se mostrarán las incidencias !-->
-    <table id="incidencias" class="display" style="width:100%">
+    <table id="incidencias" name="incidencias" style="width:100%">
         <thead>
         <tr>
             <th>ID</th>
@@ -64,16 +73,7 @@
         @endforeach
     </table>
     
-@section('js')
-    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
 
-    <script>
-        $(document).ready(function() {
-        $('#incidencias').DataTable();
-        } );
-    </script>
-@endsection
 
 
 @endsection
