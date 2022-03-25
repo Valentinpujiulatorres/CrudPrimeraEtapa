@@ -1,9 +1,5 @@
 @extends('components.head')
 @section('title', 'Usuario')
-@section('css')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
-
-@endsection
 @section('content')
     <div class="bg-dark p-5">
         <div class="container d-flex justify-content-center align-items-center">
@@ -43,15 +39,4 @@
             </table>
         </div>
     </div>
-@endsection
-@section('js')
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
-<script>
-$(document).ready( function () {
-    $('#usuarios').DataTable(
-        "lengtMenu": [[5,10,50, -1], [5,10,50, "All"]]
-    );
-} );
-</script>
 @endsection
