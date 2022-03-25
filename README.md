@@ -68,3 +68,7 @@ Saber trabajar y adaptarme mejor a los proyectos que se realizan en entornos "re
 
 <p><img src="readmeimg/1.png" width="300" /></p>
 <p><img src="readmeimg/2.png" width="300" /></p>
+
+#### Ejecutar el proyecto en tu local:
+Dentro de la carpeta de crudglrfct, ejecutar: ```php artisan serve```
+Si cambias algo de Vue, compila con ```npm run watch```
