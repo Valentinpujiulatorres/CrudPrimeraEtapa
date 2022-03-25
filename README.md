@@ -50,6 +50,8 @@
 
     https://laracasts.com/discuss/channels/laravel/sweet-alert-in-laravel-not-working
 
+    - https://www.youtube.com/watch?v=D3Ww5FGa1mY&ab_channel=CodersFree
+
     Explicacion menos funcional : https://dev.to/snehalk/how-to-use-sweetalert2-in-laravel-8-48lc
 
 1. #### Crud de Imagenes de Laravel 8 

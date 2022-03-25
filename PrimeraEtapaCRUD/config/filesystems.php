@@ -34,11 +34,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-
+//camnbio el camnpo url a /public , era /storage
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => storage_path('../public/'),
+            'url' => env('APP_URL').'../public/',
             'visibility' => 'public',
         ],
 

@@ -2,6 +2,8 @@
   
 @section('content')
 
+
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 <div class="row">
     <div class="col-lg-12 margin-tb">
@@ -80,4 +82,10 @@
     </div>
    
 </form>
+
+   
+     @livewire('select2')
+
+
+
 @endsection

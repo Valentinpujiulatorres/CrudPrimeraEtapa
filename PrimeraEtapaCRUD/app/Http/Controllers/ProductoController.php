@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use SebastianBergmann\Environment\Console;
 
 class ProductoController extends Controller
 {
@@ -17,10 +17,10 @@ class ProductoController extends Controller
     public function index()
     {
         //Indice de Paginacion de Productos , en este caso 7 pero pueden ser los que deseemos
-        $productos = Producto::latest()->paginate(7);
+        $productos = Producto::latest()->paginate(70);
 
         return view('Productos.index',compact('productos'))
-        ->with('i',(request()->input('page',1)-1)*7);
+        ->with('i',(request()->input('page',1)-1)*70);
     }
 
     /**
@@ -145,7 +145,9 @@ class ProductoController extends Controller
     {
         //Borrado de producto de la base de datos 
         //Storage::disk('public/imagenes/')->delete($producto->image); 
-
+     
+        
+        Storage::disk('public')->delete('imagenes/' . $producto->imagen);
        
 
         $producto->delete();
