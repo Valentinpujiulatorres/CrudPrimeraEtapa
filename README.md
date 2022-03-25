@@ -27,13 +27,23 @@ DB_PASSWORD=abc123.
 
 1. Que es lo mas dificil de hacer en esta prueba ?
 
+    1.1 Probablemente la implementacion de Select2, aunque lo he conseguido sin mayores complicaciones
+
 1. Que es lo mas facil de hacer en esta prueba ?
+
+    2.2 Inicializar el repositorio de Github
 
 1. Que aspecto de la prueba es el que mas te ha gustado trabajar ?
 
+    3.3 No tengo preferencias claras
+
 1. Cual es tu asignatura preferida ?
 
+    4.4 No tengo preferencias claras
+
 1. Que esperas de este proceso de aprendizaje y desarrollo?
+
+    5.5 Aprender , ganar fluideza y hacer de mis conocimientos una biblioteca incremental
 
 
 
