@@ -6,9 +6,14 @@
     <h1 class="text-center p-2" style="color: blue"> Nuevo Contacto  </h1>
     <a  class="float-end btn btn-dark" href="{{url('contacto/')}}">Retroceder </a>    
 </div>
+<ul class=""><!--Pendiente de poner estilos--->
+    @foreach ($errors->all() as $error)
+        <li class="">{{ $error }}</li><!--Estilos de lista para errores -->
+    @endforeach
+</ul>
 
 <div class="text-center">
-    <form class="text-center">
+    <form class="text-center" style="form-control-color:black ">
     <label for="NombreContacto" class="form-label m-2" style="color:rosybrown">Nombre Contacto  </label>
     <input class="form-text" type="text" name="NombreContacto" id="NombreContacto" placeholder="Escriba su nombre"">
     <br>

@@ -6,7 +6,11 @@ use App\Models\Contacto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-
+/**Importación de reglas de validación donded especifico cada una de las vistas que necesito validar 
+ * En mi caso tengo dos request una para crear un nuevo contacto y otra para editar un contacto existente 
+ */
+use App\Http\Requests\editarValidacion;
+use App\Http\Requests\createValidacion;
 
 
 
@@ -20,8 +24,8 @@ class ContactoController extends Controller
     public function index()
     {
     /** Index vista principal para ver el historico de contactos
-     * 1. Hago un llamada a la base de datos (nombre de la tabla )->get donde optengo 
-     * 2.Retorno la vista index  
+     * 1. Hago un llamada a la base de datos (nombre de la tabla )->get donde optengo
+     * 2.Retorno la vista index
      */
         $contactos=DB::table('contactos')->get();
         return view('Contacto.index',compact('contactos'));
@@ -44,15 +48,15 @@ class ContactoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(createValidacion $request)
     {
-        /** Function store 
-         * 1. Recibo una request a la que le pido que no retorne el token @crsf del formulario 
-         * 2. Compruebo que la imagen llega a la repuesta, si llega la guardo en uploads en el directorio public 
-         * 3. Sobre el modelo hago un insert a la base de datos con los datos del insert 
-         * 4. Finalmente hago una redirección al index para ver el Storage 
+        /** Function store
+         * 1. Recibo una request a la que le pido que no retorne el token @crsf del formulario
+         * 2. Compruebo que la imagen llega a la repuesta, si llega la guardo en uploads en el directorio public
+         * 3. Sobre el modelo hago un insert a la base de datos con los datos del insert
+         * 4. Finalmente hago una redirección al index para ver el Storage
         */
-         $contacto=request()->except('_token');
+         $contacto=$request->except('_token');
          if($request->hasFile('Imagen')){
              $contacto['Imagen']=$request->file('Imagen')->store('uploads','public');
          }
@@ -69,8 +73,11 @@ class ContactoController extends Controller
      */
     public function show(Contacto $contacto)
     {
+        /**Vista show, vista que muesra información detallada de un contacto en concreto
+         * retorno la vista show del contacto y redirigo a la vista contacto que es el historico 
+         */
         return view('Contacto.show',compact('contacto'));
-        
+
     }
 
     /**
@@ -82,9 +89,9 @@ class ContactoController extends Controller
     public function edit($id)
     {
         /** 1. Filtro por id
-         *  2.Creo una variable contacto que llama al modelo y filtro por id 
+         *  2.Creo una variable contacto que llama al modelo y filtro por id
          *  3.Retorno la vista edit, compact (contacto)
-         */ 
+         */
         $contacto=Contacto::find($id);
         return view('Contacto.edit',compact('contacto'));
 
@@ -98,14 +105,14 @@ class ContactoController extends Controller
      * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contacto $contacto)
+    public function update(editarValidacion $request, Contacto $contacto)
     {
-        /**1.Optengo una request,optengo el modulo contacto 
+        /**1.Optengo una request,optengo el modulo contacto
          * 2. Creo un array con nombre (contactoActualizado)
-         * 3. Optengo el nombre de la columna de la base de datos 
-         * 4. $request->atributo del arreglo 
-         * 5. Creo una variable respuesta que tiene el valor de el contacto, uso el método update, con los datos de contacto actualizado. 
-         * 6. Para la imagen confirmo que la respuesta es una imagen, esta respuesta estara guardada en el directorio uploads de public 
+         * 3. Optengo el nombre de la columna de la base de datos
+         * 4. $request->atributo del arreglo
+         * 5. Creo una variable respuesta que tiene el valor de el contacto, uso el método update, con los datos de contacto actualizado.
+         * 6. Para la imagen confirmo que la respuesta es una imagen, esta respuesta estara guardada en el directorio uploads de public
          */
 
 
@@ -122,15 +129,15 @@ class ContactoController extends Controller
         ]);
         $respuesta=$contacto->update($contactoActualizado);
 
-        
+
 
         if($request->hasFile('Imagen')){
             $contacto['Imagen']=$request->file('Imagen')->store('uploads','public');
         }
-        
+
     $contacto->update($contactoActualizado);
 
-        
+
 
 
         return view('Contacto.edit',compact('contacto'));
@@ -145,13 +152,13 @@ class ContactoController extends Controller
      */
     public function destroy( $id)
     {
-        /** 1.Metodo destroy que recibe como parámetro id, una vwz recibo, este parámetro  
+        /** 1.Metodo destroy que recibe como parámetro id, una vwz recibo, este parámetro
          *  2.Accedo al directorio Storage:: disk directorio donde guardo las imagenes en el directorio public.
-         *  3.Una vez dentro de public, hago uso del metódo delete para destruir la imagen. 
+         *  3.Una vez dentro de public, hago uso del metódo delete para destruir la imagen.
          *  4. Redireccionando a la raiz, este redirect tiene como función ir a index y mostrar los contactos actualizados despues de haber eliminado
         */
 
-    Storage::disk('public')->delete('');
-    return redirect('contacto')->with('mensaje','El contacto ha sido eliminado correctamente');
+        Storage::disk('public')->delete('');
+        return redirect('contacto')->with('mensaje','El contacto ha sido eliminado correctamente');
     }
 }

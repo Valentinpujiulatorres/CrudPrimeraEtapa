@@ -2,12 +2,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-
-<form action="{{ route('contacto.update',$contacto->id) }}" enctype="multipart/form-data" method="POST">
+<h1 class="text-center m-3" style="color: blue">Actualizar Contacto </h1>
+<ol class=""><!--Pendiente de poner estilos--->
+    @foreach ($errors->all() as $error)
+        <li class="list-group list-group-numberes" style="color: red">{{ $error }}</li>
+    @endforeach
+</ol>
+<form class="text-center" style="background-color: rgba(36, 28, 28, 0.226)" action="{{ route('contacto.update',$contacto->id) }}" enctype="multipart/form-data" method="POST">
 @csrf
 @method('PATCH')
-<label for="NombreContacto">Nombre Contacto </label>
-    <input type="text" name="NombreContacto" id="NombreContacto" placeholder="Escriba su nombre" value="{{isset($contacto->NombreContacto)?$contacto->NombreContacto:'' }}">
+<label for="NombreContacto" class="form-label m-2 ">Nombre Contacto </label>
+    <input class="text-form" type="text" name="NombreContacto" id="NombreContacto" placeholder="Escriba su nombre" value="{{isset($contacto->NombreContacto)?$contacto->NombreContacto:'' }}">
     <br>
     <label for="Apellidos">Apellidos Contacto</label>
     <input type="text" name="Apellidos" id="Apellidos" placeholder="Escriba sus apellidos" value="{{ isset($contacto->Apellidos)?$contacto->Apellidos:'' }}">
