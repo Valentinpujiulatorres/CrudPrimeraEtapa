@@ -138,10 +138,11 @@ class ContactoController extends Controller
     $contacto->update($contactoActualizado);
 
 
+            
 
-
-        return view('Contacto.edit',compact('contacto'));
-            redirect('contacto');
+         view('Contacto.edit',compact('contacto'));
+         return redirect('contacto');
+        
     }
 
     /**
@@ -158,7 +159,9 @@ class ContactoController extends Controller
          *  4. Redireccionando a la raiz, este redirect tiene como función ir a index y mostrar los contactos actualizados despues de haber eliminado
         */
 
-        Storage::disk('public')->delete('');
-        return redirect('contacto')->with('mensaje','El contacto ha sido eliminado correctamente');
+        
+        $contacto=Contacto::find($id); 
+        $contacto->delete();
+        return redirect('contacto') ;
     }
 }
