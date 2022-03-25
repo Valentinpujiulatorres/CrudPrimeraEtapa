@@ -1,5 +1,16 @@
 # CrudPrimeraEtapa
 
+
+## .env Necesario para el funcionamiento de la DB
+
+` DB_CONNECTION=pgsql
+DB_HOST=randion.es
+DB_PORT=5432
+DB_DATABASE=vpujiula_db
+DB_USERNAME=vpujiula_usr
+DB_PASSWORD=abc123.
+`
+
 ### Integrantes :
 
 - David Gonzalez

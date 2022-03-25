@@ -1,5 +1,6 @@
 @extends('Productos.layout')
-  
+
+@yield('Select2Css')
 @section('content')
 
 
@@ -83,9 +84,14 @@
    
 </form>
 
-   
-     @livewire('select2')
+    <p>Este campo es la prueba del Select2 (Abajo)</p>
+    
+    
+    @livewire('select2')
+
+
 
 
 
 @endsection
+@yield('Select2Js')
