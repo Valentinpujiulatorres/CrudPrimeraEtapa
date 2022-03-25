@@ -79,7 +79,7 @@ class UsuarioController extends Controller
             // cogemos la ruta de la imagen
             $url = str_replace('storage', 'public', '../public/imagenes/' .$usuario->imagen);
             // condicional si no esta vacio y si existe en la ruta
-            if (isset($url) && file_exists($url)){
+            if (isset($url) && file_exists($url) && !is_dir($url)){
                 // borramos la ruta y el registro
                 unlink($url);
                 $usuario->delete();
