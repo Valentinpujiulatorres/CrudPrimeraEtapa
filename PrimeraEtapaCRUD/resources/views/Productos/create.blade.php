@@ -72,7 +72,7 @@
         </div>
         
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-success">Enviar</button>
+                <button type="submit" style="width: 30%;" class="btn btn-success">Enviar</button>
         </div>
     </div>
    

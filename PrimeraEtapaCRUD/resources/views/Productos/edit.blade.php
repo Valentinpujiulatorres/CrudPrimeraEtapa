@@ -74,12 +74,16 @@
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
             <div class="form-group">
                 <strong>Imagen</strong>
-               <input   style="width: 45%;" type="file" class="form-control" name="imagen" >
+                <input style="width: 45%;" type="file" class="form-control" name="imagen" ><br>
+                <i class="text-success">Database Image Preview:</i><br>
+                <img src="/imagenes/{{$producto->imagen}}"  width="20%" alt="Imagen Registrada en DB">
+              
+              
             </div>
         </div>
         
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-success">Enviar</button>
+                <button style="width: 30%;" type="submit" class="btn btn-success">Enviar</button><br><br><br>
         </div>
     </div>
    
