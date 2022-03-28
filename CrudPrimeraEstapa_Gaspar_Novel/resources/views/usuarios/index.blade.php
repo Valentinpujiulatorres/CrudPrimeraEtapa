@@ -79,9 +79,9 @@
                                 {{-- usamos los atributos para mostrar segun el nivel de autentificacion el boton --}}
                                     @auth
                                         @can('delete', \App\Models\Usuario::class)
-                                        <form method="post" action="{{ route('usuarios.destroy', $usuario) }}">
+                                        <form method="post" class="deletebtn" action="{{ route('usuarios.destroy', $usuario) }}">
                                             @csrf @method('DELETE')
-                                            <button class="btn btn-danger text-white"><i class="fa-solid fa-trash-can"></i></button>
+                                            <button  type="submit" class="btn btn-danger text-white "><i class="fa-solid fa-trash-can"></i></button>
                                         </form>
                                         @endcan
                                     @endauth
@@ -98,16 +98,28 @@
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.7/dist/sweetalert2.all.min.js"></script>    
     
     <script>
 $(document).ready(function() {
     $('#usuarios').DataTable();
+
+    $('.deletebtn').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+        title: '@lang('traduccion.Are you going to delete a user are you sure?')',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#6c757d',
+        cancelButtonText: '@lang('traduccion.Cancel')',
+        confirmButtonText: '@lang('traduccion.Delete')',
+        }).then((result) => {
+            console.log(result.value);
+        if (result.value) {
+            this.submit();
+        } 
+    });
+        });
 } );
     </script>
-
-<script>
-
-</script>
 
 @endsection
