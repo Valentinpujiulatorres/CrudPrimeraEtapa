@@ -1,6 +1,9 @@
 # CrudPrimeraEtapa
 
 
+
+
+
 ## .env Necesario para el funcionamiento de la DB
 
 ` DB_CONNECTION=pgsql
@@ -49,7 +52,20 @@ DB_PASSWORD=abc123.
 
 ---
 
-### Tecnologias Nuevas:
+## SweetAlert
+
+Sweet Alert se trata de unas librerias de las classicas alertas de siempre pero estilizadas para causar una mejor y mas profesional impresion .
+
+Para  ello deberemos Agregar al Layout.blade :
+
+` @include('sweetalert::alert') `
+
+ademas de los siguientes links (cdn referencees)
+
+` `
+
+
+### Tecnologias Nuevas (Infografia):
 
 
 1. #### Datatables 
@@ -84,4 +100,5 @@ DB_PASSWORD=abc123.
 
 1. ### Borrado de Imagen desde carpeta 
 
+Reminder de que he cambiado la ruta de los drivers del proyecto para ubicar mis imagenes en public 
 https://es.stackoverflow.com/questions/272943/no-me-elimina-imagen-de-la-carpeta
