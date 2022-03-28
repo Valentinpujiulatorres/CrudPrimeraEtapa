@@ -9,7 +9,7 @@ use App\Http\Controllers\ProductoController;
 
 class Select2 extends Component
 {   
-    public $opciones = ["Alemania","Belgica","Espanya","Portugal","Turquia","China"];
+    public $opciones = ["Alemania","Belgica","España","Portugal","Turquia","China"];
     
     public function render()
     {

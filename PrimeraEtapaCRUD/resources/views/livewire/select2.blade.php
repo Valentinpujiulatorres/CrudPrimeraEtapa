@@ -10,7 +10,7 @@
         <option disabled selected value="Introduce un Origen">Introduce Un origen</option>
             @foreach ($opciones as $p)
                 <option value="{{$p}}">{{$p}}</option>
-            @endforeach
+            @endforeach 
     </select>
     </div>
     @section('Select2Js')
@@ -25,5 +25,6 @@
                 
             });
     </script>
+    
     @endsection
 

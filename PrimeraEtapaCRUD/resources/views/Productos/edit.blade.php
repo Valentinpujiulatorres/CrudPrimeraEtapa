@@ -56,9 +56,19 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Procedencia</strong><b>  Valor Previo: <b style="font-size: larger; color:brown">{{$producto->procedencia}}</b> </b><br>
+                <strong>Procedencia</strong><br>
 
-                @livewire('select2')
+                <div wire:ignore>
+                    <select name="procedencia" class="select2 form-control " id="select2Valentin">
+                        <option  selected value="{{$producto->procedencia}}">{{$producto->procedencia}}</option>
+                        <option value="Alemania">Alemania</option>
+                        <option value="Belgica">Belgica</option>
+                        <option value="España">España</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Turquia">Turquia</option>
+                        <option value="China">China</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
@@ -74,4 +84,15 @@
     </div>
    
 </form>
+<livewire:scripts />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+      
+            $('#select2Valentin').select2({
+
+                
+            });
+    </script>
 @endsection
