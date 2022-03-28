@@ -3,7 +3,6 @@
 
 
 
-
 ## .env Necesario para el funcionamiento de la DB
 
 ` DB_CONNECTION=pgsql
@@ -102,3 +101,6 @@ ademas de los siguientes links (cdn referencees)
 
 Reminder de que he cambiado la ruta de los drivers del proyecto para ubicar mis imagenes en public 
 https://es.stackoverflow.com/questions/272943/no-me-elimina-imagen-de-la-carpeta
+
+
+- Para Tablas relacionales : https://www.youtube.com/watch?v=j7bml8EQpIk&ab_channel=Develoteca 
