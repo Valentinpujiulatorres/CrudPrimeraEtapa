@@ -1,9 +1,11 @@
+
+@include('sweetalert::alert')
 @extends('components.head')
 @section('title', 'Usuarios')
-
 {{-- especificamos el css para el datatable --}}
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/datatable.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 @endsection
 
 @section('content')
@@ -62,14 +64,14 @@
                                 <th></th>
                                 <th>
                                             <button class="btn btn-success"><a class="text-white"
-                                                href="{{ route('usuarios.show',$usuario->id) }}">@lang('traduccion.Detail')</a></button>
+                                                href="{{ route('usuarios.show',$usuario->id) }}"><i class="fa-solid fa-eye"></i></a></button>
                                 </th>
                                 <th>
                                     {{-- usamos los atributos para mostrar segun el nivel de autentificacion el boton --}}
                                     @auth
                                         @can('update', \App\Models\Usuario::class)
                                             <button class="btn btn-warning"><a class="text-white"
-                                                    href="{{ url('usuarios/' . $usuario->id . '/edit') }}">@lang('traduccion.Edit')</a></button>
+                                                    href="{{ url('usuarios/' . $usuario->id . '/edit') }}"><i class="fa-solid fa-pen-to-square"></i></a></button>
                                         @endcan
                                     @endauth
                                 </th>
@@ -77,10 +79,10 @@
                                 {{-- usamos los atributos para mostrar segun el nivel de autentificacion el boton --}}
                                     @auth
                                         @can('delete', \App\Models\Usuario::class)
-                                            <form method="post" action="{{ route('usuarios.destroy', $usuario) }}">
-                                                @csrf @method('DELETE')
-                                                <button class="btn btn-danger text-white">@lang('traduccion.Delete')</button>
-                                            </form>
+                                        <form method="post" action="{{ route('usuarios.destroy', $usuario) }}">
+                                            @csrf @method('DELETE')
+                                            <button class="btn btn-danger text-white"><i class="fa-solid fa-trash-can"></i></button>
+                                        </form>
                                         @endcan
                                     @endauth
                                 </th>
@@ -95,10 +97,17 @@
 @section('js')
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.7/dist/sweetalert2.all.min.js"></script>    
+    
     <script>
 $(document).ready(function() {
     $('#usuarios').DataTable();
 } );
     </script>
+
+<script>
+
+</script>
+
 @endsection
