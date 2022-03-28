@@ -17,6 +17,7 @@
         <div class="bg-dark p-5">
             <h1 class="text-center text-white pb-4"><u>@lang('traduccion.Users')</u></h1>
             <div class="container d-flex justify-content-center align-items-center">
+                {{-- tabla --}}
                 <table id="usuarios" class="table border border-white">
                     <thead class="thead-dark">
                         <tr class="text-center">
@@ -49,6 +50,7 @@
                     <tbody>
                         @foreach ($usuarios as $usuario)
                             <tr class="text-center bg-white">
+                                {{-- añadimos los valores del usuario a la tabla por cada usuario  --}}
                                 <td>{{ $usuario->id }}</td>
                                 <td>{{ $usuario->nombre }}</td>
                                 <td>{{ $usuario->apellido }}</td>
@@ -100,10 +102,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
+        // usamos datatable para la tabla creada con html y poder utilizar sus funcionalidades 
 $(document).ready(function() {
     $('#usuarios').DataTable();
-
+    // usamos sweetalert para las alertas   
     $('.deletebtn').submit(function(e){
+        // esta funcion hace que se pare la ejecucion y muestra el swal
         e.preventDefault();
         Swal.fire({
         title: '@lang('traduccion.Are you going to delete a user are you sure?')',
@@ -112,6 +116,7 @@ $(document).ready(function() {
         cancelButtonColor: '#6c757d',
         cancelButtonText: '@lang('traduccion.Cancel')',
         confirmButtonText: '@lang('traduccion.Delete')',
+        // entonces ejecuta lo siguiente
         }).then((result) => {
             console.log(result.value);
         if (result.value) {

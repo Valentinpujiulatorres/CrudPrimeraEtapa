@@ -17,8 +17,10 @@
                             <li class="text-danger text-center pt-4">{{ $error }}</li>
                         @endforeach
                     @endif
+                    {{-- formulario con metodo post y enctype para la subida de imagenes  --}}
                     <form class="form-horizontal" action="{{ url('usuarios/'.$usuario->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    {{-- indicamos el metodo a usar  --}}
                     @method('PUT')
                     @include('components.form_edit')
                     </form>
