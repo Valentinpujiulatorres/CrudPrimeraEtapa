@@ -1,7 +1,9 @@
 <?php
 return [
     "Name" => "Nombre",
+    "Cancel" => "Cancelar",
     "Last name" => "Apellido",
+    "Are you going to delete a user are you sure?" => "¿Vas a eliminar a un usuario, estás seguro?",
     "Age" => "Edad",
     "Date of birth" => "Fecha de nacimiento",
     "Phone" => "Teléfono",
