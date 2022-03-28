@@ -56,13 +56,14 @@ $(document).ready(function() {
                  Editar Contacto |
                 </a>
             {{-- <a href={{ url('/contacto'.$contacto->id.'/edit') }}"> --}}
-                <form action="{{ url('/contacto/'.$contacto->id)}}" method="post">
+                <form class="botonBorrar" action="{{ url('/contacto/'.$contacto->id)}}" method="post">
                     @csrf
                 <a class="m-4 btn btn-info " href="{{ route('contacto.show',$contacto->id) }}">Ver contacto </a>
                 <br>
                     {{ method_field('DELETE')}}
-                    <input class="m-4 btn btn-danger" type="submit" onclick="return confirm ('Va a borrar un contacto desea continuar')" value="Borrar Contacto ">
+                    <input class="m-4 btn btn-danger botonBorrar " type="submit"  value="Borrar Contacto ">
                 </form> 
+                {{-- onclick="return confirm ('Va a borrar un contacto desea continuar')" --}}
                 <!--Añado bóton vista show ver individualmente-->
                 
             </td>
@@ -70,3 +71,19 @@ $(document).ready(function() {
         @endforeach 
     </tbody>
 </table>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+    $('.botonBorrar').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+        title: 'Vas a borrar un contacto estas seguro ?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Borrar contacto ',
+        });
+        
+
+</script>
