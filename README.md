@@ -54,6 +54,9 @@ DB_PASSWORD=abc123.
 
 1. #### Datatables 
 
+
+
+
 1. #### Select2
      
      Para mas info ver ejemplos > https://www.zentica-global.com/es/zentica-blog/ver/como-crear-el-menu-desplegable-select2-en-laravel-8-livewire-6073a4f27a333 
