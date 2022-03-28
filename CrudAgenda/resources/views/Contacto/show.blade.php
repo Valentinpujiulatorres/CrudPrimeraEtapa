@@ -27,6 +27,7 @@
             <th style="color: yellowgreen">Apellidos Contacto</th>
             <th style="color: yellowgreen">Correo electronico </th>
             <th style="color: yellowgreen">Edad </th>
+            <th style="color: yellowgreen">Tipo Contacto </th>
             @if($contacto)
             <tr>
                 <td>{{ $contacto->id }}</td>
@@ -36,6 +37,7 @@
                <td>{{ $contacto->Apellidos}}</td>
                <td>{{ $contacto->Direccion }}</td>
                <td>{{ $contacto->Edad }}</td>
+               <td>{{ $contacto->TipoContacto }}</td>
         </tr>    
         @endif
     </thead>

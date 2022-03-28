@@ -36,6 +36,7 @@ $(document).ready(function() {
             <th style="color: yellowgreen">Apellidos Contacto</th>
             <th style="color: yellowgreen">Correo electronico </th>
             <th style="color: yellowgreen">Edad </th>
+            <th style="color:yellowgreen">Tipo Contacto </th>
             <th style="color: yellowgreen">Acciones</th>
         </tr>
     </thead>
@@ -50,10 +51,12 @@ $(document).ready(function() {
             <td>{{ $contacto->Apellidos}}</td>
             <td>{{ $contacto->Direccion }}</td>
             <td>{{ $contacto->Edad }}</td>
+            <td>{{ $contacto->TipoContacto }}</td>
+
             <td>
                 <a class=" m-4 btn btn-warning" href="{{ route('contacto.edit',$contacto->id) }}">
                 
-                 Editar Contacto |
+                 Editar Contacto 
                 </a>
             {{-- <a href={{ url('/contacto'.$contacto->id.'/edit') }}"> --}}
                 <form class="botonBorrar" action="{{ url('/contacto/'.$contacto->id)}}" method="post">
@@ -77,13 +80,22 @@ $(document).ready(function() {
 
 <script>
     $('.botonBorrar').submit(function(e){
-        e.preventDefault();
         Swal.fire({
-        title: 'Vas a borrar un contacto estas seguro ?',
-        showDenyButton: true,
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Borrar contacto ',
-        });
-        
-
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
+        }
+        })
+    });
 </script>

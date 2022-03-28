@@ -19,8 +19,10 @@ class CreateContactosTable extends Migration
             $table->string("Apellidos",15);
             $table->string("Direccion");
             $table->String("Edad");
-            $table->string("Imagen",);
+            $table->string("Imagen");
+            $table->string('TipoContacto');
             $table->timestamps();
+
         });
     }
 

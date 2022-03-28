@@ -56,6 +56,7 @@ class ContactoController extends Controller
          * 3. Sobre el modelo hago un insert a la base de datos con los datos del insert
          * 4. Finalmente hago una redirección al index para ver el Storage
         */
+
          $contacto=$request->except('_token');
          if($request->hasFile('Imagen')){
              $contacto['Imagen']=$request->file('Imagen')->store('uploads','public');
@@ -122,7 +123,8 @@ class ContactoController extends Controller
             'Apellidos' => $request->Apellidos,
             'Direccion' => $request->Direccion,
             'Edad'=>$request->Edad,
-            // 'Imagen'=>$request->Imagen,
+            'TipoContacto'=>$request->TipoContacto,
+            
 
 
 

@@ -30,6 +30,14 @@
     <label for="Edad" class="form-label m-2" style="color: yellowgreen"> Edad </label>
     <input type="text" name="Edad" id="Edad" placeholder="Que edad tiene" value="{{isset($contacto->Edad)?$contacto->Edad:''}}">
     <br>
+    <label for="tipoContacto"   class="form-label m-2" style="color: yellowgreen"">Tipo de contacto</label> 
+    <select class="TipoContacto" name="TipoContacto" id="TipoContacto">
+        <option value="Familiar">Familiar</option>
+        <option value="Amigo" disabled="disabled">Amigo</option>
+        <option value="Conocido">Conocido</option>
+    </select>    
+        <br>
+    
     <label for="Imagen" class="form-label m-2 " style="color: yellowgreen">Eliga una imagen </label>
     @if(isset($contacto->Imagen))
     <input type="file" name="Imagen" id="Imagen">

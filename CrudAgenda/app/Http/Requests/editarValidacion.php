@@ -36,7 +36,8 @@ class editarValidacion extends FormRequest
          'Apellidos'=>'required|string|min:4|max:20',
          'Direccion'=> 'required|string|min:5|max:30',
          'Edad'=>'required|string|min:1|max:3',
-         'Imagen'=>'image|mimes:jpeg,jpg,png,gif,webp',
+         'TipoContacto'=>'required|string',
+         'Imagen'=>'required|image|mimes:jpeg,jpg,png,gif,webp',
         ];
     }
 }

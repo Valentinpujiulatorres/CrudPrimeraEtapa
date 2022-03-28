@@ -35,11 +35,14 @@ class createValidacion extends FormRequest
          * 5. La imagen tiene un atributo mimes por lo que establezco ,los formatos de fichero que estan permitidos 
          * En el caso de querer hacer una subida de un pdf, no estaría autorizado porque no esta la extensión
          */
+
+        //  dd('test');
         return [
             'NombreContacto'=>'required|string|min:3|max:10',
             'Apellidos'=>'required|string|min:4|max:20',
             'Direccion'=> 'required|string|min:5|max:30',
             'Edad'=>'required|string|min:1|max:3',
+            'TipoContacto'=>'required|string',
             'Imagen'=>'required|image|mimes:jpeg,jpg,png,gif,webp',
         ];
     }

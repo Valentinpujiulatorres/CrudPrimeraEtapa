@@ -16,7 +16,8 @@ class Contacto extends Model
          'Apellidos',
          'Direccion',
          'Edad',
-         'Imagen'
+         'Imagen',
+         'TipoContacto',
      ];
 
 
