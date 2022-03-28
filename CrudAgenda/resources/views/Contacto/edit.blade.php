@@ -30,7 +30,7 @@
     <label for="Edad" class="form-label m-2" style="color: yellowgreen"> Edad </label>
     <input type="text" name="Edad" id="Edad" placeholder="Que edad tiene" value="{{isset($contacto->Edad)?$contacto->Edad:''}}">
     <br>
-    <label for="tipoContacto"   class="form-label m-2" style="color: yellowgreen"">Tipo de contacto</label> 
+    <label for="tipoContacto" class="form-label m-2" style="color: yellowgreen"">Tipo de contacto</label> 
     <select class="TipoContacto" name="TipoContacto" id="TipoContacto">
         <option value="Familiar">Familiar</option>
         <option value="Amigo" disabled="disabled">Amigo</option>
@@ -39,8 +39,9 @@
         <br>
     
     <label for="Imagen" class="form-label m-2 " style="color: yellowgreen">Eliga una imagen </label>
-    @if(isset($contacto->Imagen))
-    <input type="file" name="Imagen" id="Imagen">
+    @if(isset($contacto->Imagen)) <img src="{{ Storage::url( $contacto->Imagen)}}"class="css-class" alt="Imagen ">
+    <!--Con esta línea accedo a la imagen que tiene el usuario almacenada, el equivalente a un old value-->
+    <input class="m-3 "  type="file" name="Imagen" id="Imagen" width=20% height=20%>
     @endif
     <br>
     <input type="submit" value="Guardar Contacto">

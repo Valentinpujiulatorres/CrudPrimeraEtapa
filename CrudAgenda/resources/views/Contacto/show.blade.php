@@ -6,6 +6,7 @@
 
     
 <script>
+    /*LLamada a la función que activa el datatables */
     $(document).ready(function() {
         $('#contactoIndividual').DataTable();
     
@@ -28,6 +29,7 @@
             <th style="color: yellowgreen">Correo electronico </th>
             <th style="color: yellowgreen">Edad </th>
             <th style="color: yellowgreen">Tipo Contacto </th>
+            <!--Interrogo si esta el contacto, y me muestra sus datos -->
             @if($contacto)
             <tr>
                 <td>{{ $contacto->id }}</td>
