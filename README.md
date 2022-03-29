@@ -62,6 +62,57 @@ ademas de los siguientes links (cdn referencees)
 
 < script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></ script> 
 
+## Datatables 
+
+Son compilaciones de estilos y scripts que mejoran las classicas tablas de datos, estas se incorporan a tu codugoi en forma de Estilos *(Bootstrap) y un script sencillo que hace que la parte interactiva sea util
+
+>B5 Link : < link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+El script de las tablas (Funcionamiento + modificacion de la paginacion)
+
+>JS : 
+
+  < script src="https://code.jquery.com/jquery-3.5.1.js"></ script>
+  < script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></ script>
+  < script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></ script>
+
+    $(document).ready(function() {
+        $('#productos').DataTable(
+       {
+           "lengthMenu": [[ 7, 14, 28 ,-1] , [ 7 , 14 , 28 , "All"]]
+       } 
+    );
+        
+    } ); 
+
+## Select2 
+
+Select2 es una version actualizada con estilos y funcionalidades como hovers y buscador a los select comunes de HTML 
+
+IMPORTANTE : 
+
+Se debe agregar al HEAD : 
+
+` <livewire:styles /> `
+
+Ademas de al final de BODY :
+
+`  <livewire:scripts /> `
+
+Los links /CDN que emplearemos son los siguientes :
+
+    < link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    < script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+Ademas de el script tag imprescindible para su correscto funcionamiento 
+
+    $('#select2Valentin').select2({}); 
 
 ### Tecnologias Nuevas (Infografia):
 
