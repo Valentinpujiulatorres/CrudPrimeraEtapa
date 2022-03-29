@@ -1,8 +1,5 @@
 # CrudPrimeraEtapa
 
-
-
-
 ## .env Necesario para el funcionamiento de la DB
 
 ` DB_CONNECTION=pgsql
@@ -61,7 +58,9 @@ Para  ello deberemos Agregar al Layout.blade :
 
 ademas de los siguientes links (cdn referencees)
 
-` `
+< link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+
+< script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></ script> 
 
 
 ### Tecnologias Nuevas (Infografia):
