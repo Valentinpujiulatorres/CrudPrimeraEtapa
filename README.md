@@ -85,7 +85,7 @@ El script de las tablas (Funcionamiento + modificacion de la paginacion)
         
     } ); 
 
-## Select2 
+## Select2 *(Livewire)
 
 Select2 es una version actualizada con estilos y funcionalidades como hovers y buscador a los select comunes de HTML 
 
