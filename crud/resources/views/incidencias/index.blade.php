@@ -4,16 +4,15 @@
 
 @section('content')
 
+<<<<<<< HEAD
 <!-- CDN y codigo de la datatable !-->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
+=======
 
-    <script>
-$(document).ready(function() {
-    $('#incidencias').DataTable();
-} );
-    </script>
+>>>>>>> df6c722b89d312dbf4c9f9fe3100efc8a014ab93
+
     
 
 
@@ -77,7 +76,7 @@ $(document).ready(function() {
 @section('js')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
-    
+    <!-- Script para el sweet alert a la hora de borrar una -->
     @if (session('eliminar') == 'ok')
     <script>
         Swal.fire(
@@ -106,6 +105,17 @@ $(document).ready(function() {
       this.submit();
     }})});
             
+    </script>
+    
+    <!-- scripts para las datatables, no funcionan del todo !-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+    <script src="//code.jquery.com/jquery-3.5.1.js"></script>    
+    <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
+
+    <script>
+    $(document).ready(function() {
+        $('#incidencias').DataTable();
+    } );
     </script>
 @endsection
     
