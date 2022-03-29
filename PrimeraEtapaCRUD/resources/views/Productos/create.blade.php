@@ -67,7 +67,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ">
             <div class="form-group">
                 <strong>Imagen</strong>
-               <input   style="width: 45%;" type="file" class="form-control" name="imagen" >
+               <input   style="width: 45%;" type="file" class="form-control" name="imagen" accept="image/*" >
             </div>
         </div>
         

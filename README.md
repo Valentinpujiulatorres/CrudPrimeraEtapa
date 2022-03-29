@@ -145,6 +145,8 @@ Ademas de el script tag imprescindible para su correscto funcionamiento
 
 1. #### Crud de Imagenes de Laravel 8 
 
+    - Uploader Preview JS Codepen https://codepen.io/purnama_A/pen/wrPKgL
+
     https://www.youtube.com/watch?v=gkgaLqCySzg&list=RDCMUCLa5WaffYWAaJY09_l863yw&start_radio=1&rv=gkgaLqCySzg&t=328&ab_channel=Inform%C3%A1ticaDP 
 
 1. ### Borrado de Imagen desde carpeta 
