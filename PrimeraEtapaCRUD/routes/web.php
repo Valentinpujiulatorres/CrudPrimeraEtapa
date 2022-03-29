@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::resource('/productos', ProductoController::class );//->middleware(['auth']);
 
-//Endpoint destinado a la clase de select2
+//Endpoint destinado a la clase de select2 (No  relevante  )
 Route::get('select2', Select2::class)->name('select2');
 
 Route::get('/dashboard', function () {

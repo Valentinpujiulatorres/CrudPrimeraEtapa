@@ -94,6 +94,7 @@
         title: 'ATENCION',
         text: "Una vez borrado el registro no se podra recuperar",
         icon: 'warning',
+        type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#198754',
         cancelButtonColor: '#d33',
