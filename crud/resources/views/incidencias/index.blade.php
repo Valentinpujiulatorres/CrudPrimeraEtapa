@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+<!-- CDN y codigo de la datatable !-->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>    
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>    
@@ -72,6 +72,8 @@ $(document).ready(function() {
         </body>
         @endforeach
     </table>
+    
+    <!-- Codigo y cdn de la sweet alert !-->
 @section('js')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
