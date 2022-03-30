@@ -119,7 +119,9 @@ Ademas de el script tag imprescindible para su correscto funcionamiento
 
 1. #### Datatables 
 
+A parte de las colecciones de Funciones y estilos de Datatables recopidados en la web , tambien debemos tener en cuenta el posible uso de las datatables de LAravael
 
+Podemos encontrar mas  informacion en : https://yajrabox.com/docs/laravel-datatables/master/installation#installing-laravel-datatables
 
 
 1. #### Select2
@@ -156,3 +158,8 @@ https://es.stackoverflow.com/questions/272943/no-me-elimina-imagen-de-la-carpeta
 
 
 - Para Tablas relacionales : https://www.youtube.com/watch?v=j7bml8EQpIk&ab_channel=Develoteca 
+
+1. ### Jquery.ajax()
+
+Sirve para cambiar dinamicamente el contenido de un contenedor a otro que devuelves a modo de FETCH
+https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_ajax_ajax
