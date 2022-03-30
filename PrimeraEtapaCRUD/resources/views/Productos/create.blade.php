@@ -4,7 +4,9 @@
 @section('content')
 
 
-
+<!-- Jquery validation CDN -->
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+<!-- END -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 <div class="row">
     <div class="col-lg-12 margin-tb">
@@ -28,7 +30,7 @@
     </div>
 @endif
    
-<form  style="margin-top: 5%;" action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
+<form id="CreateForm"  style="margin-top: 5%;" action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
   
     <!-- Formulario agregando los old values para que en caso de error recuerde el value previo -->
@@ -36,7 +38,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nombre</strong>
-                <input  type="text" name="nombre" class="form-control" placeholder="Inserte un nombre de producto">
+                <input  type="text" minlength="2" required name="nombre" class="form-control" placeholder="Inserte un nombre de producto">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -77,8 +79,10 @@
     </div>
    
 </form>
+<script>
+    $("#CreateForm").validate();
 
-    
+</script>    
     
     
     
