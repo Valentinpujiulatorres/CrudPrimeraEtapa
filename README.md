@@ -114,6 +114,17 @@ Ademas de el script tag imprescindible para su correscto funcionamiento
 
     $('#select2Valentin').select2({}); 
 
+
+## Jquery Validation Plugin
+
+Este plugin de Jquery esta pensado para que las validaciones se hagan en vivo , y los mensajes de error le den al usuario un feedback inmediato .
+
+Hasta ahora habiamos implementado la validacion ya sea mediante patterns/backend  {Referido a la validacion en la propia request}
+
+Para mas info podemos mirar :
+
+https://jqueryvalidation.org/ 
+
 ### Tecnologias Nuevas (Infografia):
 
 
@@ -163,3 +174,11 @@ https://es.stackoverflow.com/questions/272943/no-me-elimina-imagen-de-la-carpeta
 
 Sirve para cambiar dinamicamente el contenido de un contenedor a otro que devuelves a modo de FETCH
 https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_ajax_ajax
+
+Un ejemplo sencillo de funcionamiento podria ser : 
+
+    $("button").click(function(){
+    $.ajax({url: "demo_test.txt", success: function(result){
+    $("#div1").html(result);
+    }});
+    }   );
