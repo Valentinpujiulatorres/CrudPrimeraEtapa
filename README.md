@@ -127,6 +127,10 @@ https://jqueryvalidation.org/
 
 ### Tecnologias Nuevas (Infografia):
 
+1. ### Reset Password Laravel
+
+https://www.youtube.com/watch?v=7yCQsHHC6X8&ab_channel=DoniSpot 
+
 
 1. #### Datatables 
 
